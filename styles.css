@@ -108,6 +108,9 @@ nav a:hover {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 2px solid #e9ecef;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .solution-card:hover {
