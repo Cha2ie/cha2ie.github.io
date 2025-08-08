@@ -7,8 +7,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: #2E2E2E;
+    background-color: #F5F5F5;
 }
 
 .container {
@@ -46,18 +46,18 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: #2E2E2E;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #007bff;
+    color: #4DE0EB;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4DE0EB 0%, #4DBCEB 100%);
     color: white;
     padding: 4rem 0;
     text-align: center;
@@ -92,7 +92,7 @@ nav a:hover {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #333;
+    color: #2E2E2E;
 }
 
 .solutions-grid {
@@ -102,12 +102,12 @@ nav a:hover {
 }
 
 .solution-card {
-    background: #f8f9fa;
+    background: white;
     border-radius: 10px;
     padding: 2rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid #e9ecef;
+    border: 2px solid #4DE0EB;
     text-decoration: none;
     color: inherit;
     display: block;
@@ -115,7 +115,8 @@ nav a:hover {
 
 .solution-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(77, 224, 235, 0.3);
+    border-color: #3CBAC6;
 }
 
 .solution-icon {
@@ -126,12 +127,13 @@ nav a:hover {
 .solution-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: #2E2E2E;
 }
 
 .solution-card p {
     margin-bottom: 1.5rem;
-    color: #666;
+    color: #2E2E2E;
+    opacity: 0.8;
 }
 
 .solution-card ul {
@@ -143,28 +145,29 @@ nav a:hover {
     padding: 0.3rem 0;
     position: relative;
     padding-left: 1.5rem;
-    color: #555;
+    color: #2E2E2E;
+    opacity: 0.9;
 }
 
 .solution-card li:before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #28a745;
+    color: #EB944D;
     font-weight: bold;
 }
 
 /* Why Choose Us Section */
 .why-choose-us {
     padding: 4rem 0;
-    background: #f8f9fa;
+    background: #F5F5F5;
 }
 
 .why-choose-us h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #333;
+    color: #2E2E2E;
 }
 
 .benefits-grid {
@@ -184,16 +187,17 @@ nav a:hover {
 .benefit h4 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: #2E2E2E;
 }
 
 .benefit p {
-    color: #666;
+    color: #2E2E2E;
+    opacity: 0.7;
 }
 
 /* Footer */
 footer {
-    background: #333;
+    background: #2E2E2E;
     color: white;
     text-align: center;
     padding: 2rem 0;
