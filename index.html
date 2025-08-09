@@ -56,14 +56,26 @@
 
                     <a href="systmone-reporting.html" class="solution-card">
                         <div class="solution-icon reporting-icon">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <path d="M9 9h6v6h-6z" fill="currentColor"/>
-                                <path d="M7 7v2M7 15v2M17 7v2M17 15v2M7 7h2M15 7h2M7 17h2M15 17h2"/>
-                                <circle cx="12" cy="8" r="1" fill="white"/>
-                                <circle cx="8" cy="12" r="1" fill="white"/>
-                                <circle cx="16" cy="12" r="1" fill="white"/>
-                                <circle cx="12" cy="16" r="1" fill="white"/>
+                            <svg viewBox="0 0 64 64" width="100%" height="100%" role="img" aria-hidden="true" focusable="false">
+                                <rect x="0" y="0" width="64" height="64" rx="10" fill="transparent"></rect>
+                                
+                                <g transform="translate(6,10)">
+                                    <rect class="bar-track" x="0" y="28" width="10" height="18" rx="1.8"></rect>
+                                    <rect class="bar-track" x="18" y="22" width="10" height="24" rx="1.8"></rect>
+                                    <rect class="bar-track" x="36" y="12" width="10" height="34" rx="1.8"></rect>
+
+                                    <rect class="bar b1" x="0"  y="28" width="10" height="18" rx="1.8"></rect>
+                                    <rect class="bar b2" x="18" y="22" width="10" height="24" rx="1.8"></rect>
+                                    <rect class="bar b3" x="36" y="12" width="10" height="34" rx="1.8"></rect>
+                                </g>
+
+                                <!-- Points and line perfectly aligned to top center of bars -->
+                                <g transform="translate(6,10)">
+                                    <path class="trend-line" d="M5 28 L23 22 L41 12" />
+                                    <circle class="trend-point" cx="5" cy="28" r="2.6"></circle>
+                                    <circle class="trend-point" cx="23" cy="22" r="2.6"></circle>
+                                    <circle class="trend-point" cx="41" cy="12" r="2.6"></circle>
+                                </g>
                             </svg>
                         </div>
                         <h3>Reporting Suites</h3>

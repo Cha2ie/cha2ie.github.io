@@ -152,28 +152,77 @@ nav a:hover {
     stroke: #2E2E2E;
 }
 
-/* Ensure reporting icon elements use the right colors */
-.reporting-icon svg rect,
-.reporting-icon svg path {
-    stroke: white;
-}
-
-.solution-card:hover .reporting-icon svg rect,
-.solution-card:hover .reporting-icon svg path {
-    stroke: #2E2E2E;
-}
-
 /* Specific animations for each icon */
 .ai-icon svg {
     animation: pulse 2s infinite;
 }
 
-.reporting-icon svg {
-    animation: rotate 3s linear infinite;
-}
-
 .implementation-icon svg {
     animation: bounce 2s infinite;
+}
+
+/* Animated Graph Icon Styles - Following exact example */
+.reporting-icon .bar {
+    transform-origin: 50% 100%;
+    transform: scaleY(0);
+    transition: transform 420ms cubic-bezier(.2,.9,.2,1);
+    fill: white;
+    opacity: 0.98;
+}
+
+.reporting-icon .bar-track { 
+    fill: rgba(255, 255, 255, 0.3); 
+}
+
+.reporting-icon .trend-line {
+    fill: none;
+    stroke: white;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 520ms cubic-bezier(.2,.9,.2,1),
+                stroke 420ms ease;
+    opacity: 0.95;
+}
+
+.reporting-icon .trend-point {
+    transform-origin: center center;
+    transform: scale(0.8);
+    transition: transform 220ms ease, fill 220ms ease;
+    fill: white;
+}
+
+/* Hover animations for reporting icon */
+.solution-card:hover .reporting-icon .bar.b1 { 
+    transform: scaleY(1); 
+    transition-delay: 0s; 
+    fill: #2E2E2E;
+}
+.solution-card:hover .reporting-icon .bar.b2 { 
+    transform: scaleY(1); 
+    transition-delay: 40ms; 
+    fill: #2E2E2E;
+}
+.solution-card:hover .reporting-icon .bar.b3 { 
+    transform: scaleY(1); 
+    transition-delay: 80ms; 
+    fill: #2E2E2E;
+}
+
+.solution-card:hover .reporting-icon .trend-line {
+    stroke-dashoffset: 0;
+    stroke: #2E2E2E;
+}
+
+.solution-card:hover .reporting-icon .trend-point { 
+    transform: scale(1.1); 
+    fill: #2E2E2E; 
+}
+
+.solution-card:hover .reporting-icon .bar-track { 
+    fill: rgba(46, 46, 46, 0.2); 
 }
 
 @keyframes pulse {
