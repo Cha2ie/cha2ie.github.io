@@ -57,7 +57,7 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #4DE0EB 0%, #4DBCEB 100%);
+    background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%);
     color: white;
     padding: 4rem 0;
     text-align: center;
@@ -152,6 +152,12 @@ nav a:hover {
     stroke: #2E2E2E;
 }
 
+/* Override SVG sizing for reporting icon */
+.reporting-icon-new svg {
+    width: 100%;
+    height: 100%;
+}
+
 /* Specific animations for each icon */
 .ai-icon svg {
     animation: pulse 2s infinite;
@@ -161,68 +167,150 @@ nav a:hover {
     animation: bounce 2s infinite;
 }
 
-/* Animated Graph Icon Styles - Following exact example */
-.reporting-icon .bar {
+/* New AI Icon Styles - matching reporting suite */
+.ai-icon-new {
+    width: 240px;
+    height: 112px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 12px;
+    transition: all 420ms ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-icon-new:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Override SVG sizing for AI icon */
+.ai-icon-new svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Robot hand animation */
+.ai-icon-new .robot-hand {
+    opacity: 1;
+    transform: translate(190px, 160px) rotate(0deg);
+    transform-origin: 0px 20px;
+}
+
+.solution-card:hover .ai-icon-new .robot-hand {
+    animation: handWave 10s ease-in-out infinite;
+}
+
+@keyframes handWave {
+    0%, 100% { transform: translate(190px, 160px) rotate(0deg); }
+    4% { transform: translate(190px, 80px) rotate(0deg); }
+    5% { transform: translate(185px, 78px) rotate(-15deg); }
+    6% { transform: translate(190px, 80px) rotate(0deg); }
+    7% { transform: translate(195px, 78px) rotate(15deg); }
+    8% { transform: translate(190px, 80px) rotate(0deg); }
+    11% { transform: translate(190px, 80px) rotate(0deg); }
+    13% { transform: translate(190px, 160px) rotate(0deg); }
+}
+
+/* Robot antenna blinking animation */
+.ai-icon-new circle[fill="#4DE0EB"] {
+    animation: antennaBlink 5s infinite;
+}
+
+.solution-card:hover .ai-icon-new circle[fill="#4DE0EB"] {
+    animation: none;
+}
+
+@keyframes antennaBlink {
+    0%, 88% { opacity: 1; }
+    90%, 94% { opacity: 0; }
+    96%, 100% { opacity: 1; }
+}
+
+/* New Rectangular Reporting Icon Styles */
+.reporting-icon-new {
+    width: 240px;
+    height: 112px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 12px;
+    transition: all 420ms ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.reporting-icon-new:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+.reporting-icon-new .bar {
     transform-origin: 50% 100%;
     transform: scaleY(0);
     transition: transform 420ms cubic-bezier(.2,.9,.2,1);
-    fill: white;
+    fill: #4DE0EB;
     opacity: 0.98;
 }
 
-.reporting-icon .bar-track { 
-    fill: rgba(255, 255, 255, 0.3); 
-}
-
-.reporting-icon .trend-line {
+.reporting-icon-new .trend-line {
     fill: none;
-    stroke: white;
+    stroke: #2E2E2E;
     stroke-width: 2.4;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
     transition: stroke-dashoffset 520ms cubic-bezier(.2,.9,.2,1),
                 stroke 420ms ease;
     opacity: 0.95;
 }
 
-.reporting-icon .trend-point {
+.reporting-icon-new .trend-point {
     transform-origin: center center;
-    transform: scale(0.8);
-    transition: transform 220ms ease, fill 220ms ease;
-    fill: white;
+    transform: scale(1);
+    transition: transform 220ms ease, fill 220ms ease, cy 420ms ease, opacity 1.2s ease;
+    fill: #2E2E2E;
+    opacity: 0;
 }
 
-/* Hover animations for reporting icon */
-.solution-card:hover .reporting-icon .bar.b1 { 
-    transform: scaleY(1); 
-    transition-delay: 0s; 
-    fill: #2E2E2E;
+/* Flickering animation for idle state */
+@keyframes flicker {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
 }
-.solution-card:hover .reporting-icon .bar.b2 { 
-    transform: scaleY(1); 
-    transition-delay: 40ms; 
-    fill: #2E2E2E;
+
+.solution-card:not(:hover) .reporting-icon-new .trend-point {
+    animation: flicker 3s infinite;
 }
-.solution-card:hover .reporting-icon .bar.b3 { 
-    transform: scaleY(1); 
-    transition-delay: 80ms; 
+
+.solution-card:not(:hover) .reporting-icon-new .trend-point:nth-child(2) { animation-delay: 0.3s; }
+.solution-card:not(:hover) .reporting-icon-new .trend-point:nth-child(3) { animation-delay: 0.6s; }
+.solution-card:not(:hover) .reporting-icon-new .trend-point:nth-child(4) { animation-delay: 0.9s; }
+.solution-card:not(:hover) .reporting-icon-new .trend-point:nth-child(5) { animation-delay: 1.2s; }
+.solution-card:not(:hover) .reporting-icon-new .trend-point:nth-child(6) { animation-delay: 1.5s; }
+
+/* Hover animations */
+.solution-card:hover .reporting-icon-new .bar {
+    transform: scaleY(1);
     fill: #2E2E2E;
 }
 
-.solution-card:hover .reporting-icon .trend-line {
+.solution-card:hover .reporting-icon-new .trend-line {
     stroke-dashoffset: 0;
+    transition-delay: 120ms;
     stroke: #2E2E2E;
 }
 
-.solution-card:hover .reporting-icon .trend-point { 
-    transform: scale(1.1); 
-    fill: #2E2E2E; 
-}
-
-.solution-card:hover .reporting-icon .bar-track { 
-    fill: rgba(46, 46, 46, 0.2); 
+.solution-card:hover .reporting-icon-new .trend-point {
+    opacity: 1;
+    transform: scale(1);
+    fill: #2E2E2E;
 }
 
 @keyframes pulse {
@@ -243,10 +331,6 @@ nav a:hover {
 
 /* Pause animations on hover for better UX */
 .solution-card:hover .ai-icon svg {
-    animation-play-state: paused;
-}
-
-.solution-card:hover .reporting-icon svg {
     animation-play-state: paused;
 }
 
