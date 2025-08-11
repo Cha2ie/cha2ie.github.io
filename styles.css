@@ -264,7 +264,7 @@ nav a:hover {
     transform-origin: 50% 100%;
     transform: scaleY(0);
     transition: transform 420ms cubic-bezier(.2,.9,.2,1);
-    fill: #4DE0EB;
+    fill: #2E2E2E;
     opacity: 0.98;
 }
 
@@ -338,6 +338,65 @@ nav a:hover {
     40% { transform: translateY(-10px); }
     60% { transform: translateY(-5px); }
 }
+
+/* Binary stream animation - seamless loop */
+@keyframes binaryStream1 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(165px);
+    }
+}
+
+@keyframes binaryStream2 {
+    0% {
+        transform: translateX(-165px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Animation triggers on hover */
+.solution-card:hover .binary-stream-1 {
+    animation: binaryStream1 4s linear infinite;
+}
+/*
+.solution-card:hover .binary-stream-2 {
+    animation: binaryStream1 4s linear infinite;
+    animation-delay: 3.5s;
+}
+*/
+
+/* Thought emoji animation */
+@keyframes thoughtAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    20% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    80% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+.solution-card:hover .thought-emoji {
+    animation: thoughtAppear 3.5s ease-in-out infinite;
+}
+
+.solution-card:hover .thought-emoji:nth-child(1) { animation-delay: 2s; }
+.solution-card:hover .thought-emoji:nth-child(2) { animation-delay: 2.8s; }
+.solution-card:hover .thought-emoji:nth-child(3) { animation-delay: 3.6s; }
+.solution-card:hover .thought-emoji:nth-child(4) { animation-delay: 4.4s; }
 
 /* Pause animations on hover for better UX */
 .solution-card:hover .ai-icon svg {
