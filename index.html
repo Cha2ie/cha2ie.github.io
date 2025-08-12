@@ -24,7 +24,7 @@
     <main>
         <section id="hero" class="hero">
             <div class="container">
-                <h1>Health<br>Tech<br>Experts</h1>
+                <h1>Hospice<br>Digital<br>Specialists</h1>
                 <p class="hero-subtitle">We take care of your digital challenges so that you can take care of your patients</p>
             </div>
         </section>
@@ -165,5 +165,33 @@
             <p>&copy; 2025 Compitel. All rights reserved. | Specialist SystmOne solutions for UK healthcare.</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile scroll-triggered hover effect
+        function isMobile() {
+            return window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
+        }
+
+        if (isMobile()) {
+            const cards = document.querySelectorAll('.solution-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('mobile-active');
+                    } else {
+                        entry.target.classList.remove('mobile-active');
+                    }
+                });
+            }, {
+                threshold: 0.5, // Trigger when 50% of the card is visible
+                rootMargin: '-50px 0px' // Add some margin for better timing
+            });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+    </script>
 </body>
 </html>

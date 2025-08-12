@@ -118,7 +118,8 @@ nav a:hover {
     display: block;
 }
 
-.solution-card:hover {
+.solution-card:hover,
+.solution-card.mobile-active {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(209, 213, 219, 0.3);
     border-color: #9CA3AF;
@@ -216,7 +217,8 @@ nav a:hover {
     transform-origin: 0px 20px;
 }
 
-.solution-card:hover .ai-icon-new .robot-hand {
+.solution-card:hover .ai-icon-new .robot-hand,
+.solution-card.mobile-active .ai-icon-new .robot-hand {
     animation: handWave 10s ease-in-out infinite;
 }
 
@@ -236,7 +238,8 @@ nav a:hover {
     animation: antennaBlink 5s infinite;
 }
 
-.solution-card:hover .ai-icon-new circle[fill="#4DE0EB"] {
+.solution-card:hover .ai-icon-new circle[fill="#4DE0EB"],
+.solution-card.mobile-active .ai-icon-new circle[fill="#4DE0EB"] {
     animation: none;
 }
 
@@ -301,29 +304,34 @@ nav a:hover {
     50% { opacity: 1; }
 }
 
-.solution-card:not(:hover) .reporting-icon-new .trend-point {
+.solution-card:not(:hover):not(.mobile-active) .reporting-icon-new .trend-point {
     animation: flicker 3s infinite;
 }
 
-.solution-card:not(:hover) .reporting-icon-new .trend-point:nth-child(2) { animation-delay: 0.3s; }
-.solution-card:not(:hover) .reporting-icon-new .trend-point:nth-child(3) { animation-delay: 0.6s; }
-.solution-card:not(:hover) .reporting-icon-new .trend-point:nth-child(4) { animation-delay: 0.9s; }
-.solution-card:not(:hover) .reporting-icon-new .trend-point:nth-child(5) { animation-delay: 1.2s; }
-.solution-card:not(:hover) .reporting-icon-new .trend-point:nth-child(6) { animation-delay: 1.5s; }
+.solution-card:not(:hover):not(.mobile-active) .reporting-icon-new .trend-point:nth-child(2) { animation-delay: 0.3s; }
+.solution-card:not(:hover):not(.mobile-active) .reporting-icon-new .trend-point:nth-child(3) { animation-delay: 0.6s; }
+.solution-card:not(:hover):not(.mobile-active) .reporting-icon-new .trend-point:nth-child(4) { animation-delay: 0.9s; }
+.solution-card:not(:hover):not(.mobile-active) .reporting-icon-new .trend-point:nth-child(5) { animation-delay: 1.2s; }
+.solution-card:not(:hover):not(.mobile-active) .reporting-icon-new .trend-point:nth-child(6) { animation-delay: 1.5s; }
 
 /* Hover animations */
-.solution-card:hover .reporting-icon-new .bar {
+.solution-card:hover .reporting-icon-new .bar,
+.solution-card.mobile-active .reporting-icon-new .bar {
     transform: scaleY(1);
     fill: #2E2E2E;
 }
 
-.solution-card:hover .reporting-icon-new .trend-line {
-    stroke-dashoffset: 0;
+.solution-card:hover .reporting-icon-new .trend-line,
+.solution-card.mobile-active .reporting-icon-new .trend-line {
+    stroke-dashoffset: 200;
     transition-delay: 120ms;
+    transition: stroke-dashoffset 520ms cubic-bezier(.2,.9,.2,1),
+                stroke 420ms ease;
     stroke: #2E2E2E;
 }
 
-.solution-card:hover .reporting-icon-new .trend-point {
+.solution-card:hover .reporting-icon-new .trend-point,
+.solution-card.mobile-active .reporting-icon-new .trend-point {
     opacity: 1;
     transform: scale(1);
     fill: #2E2E2E;
@@ -365,7 +373,8 @@ nav a:hover {
 }
 
 /* Animation triggers on hover */
-.solution-card:hover .ai-lightbulb text {
+.solution-card:hover .ai-lightbulb text,
+.solution-card.mobile-active .ai-lightbulb text {
     opacity: 1;
     transform: translateY(3px) scale(1);
     transition: opacity 200ms ease-out 120ms, transform 200ms ease-out 120ms;
@@ -376,7 +385,8 @@ nav a:hover {
     transition: transform 200ms ease;
 }
 
-.solution-card:hover .ai-icon-new svg g[transform="translate(70,25)"] {
+.solution-card:hover .ai-icon-new svg g[transform="translate(70,25)"],
+.solution-card.mobile-active .ai-icon-new svg g[transform="translate(70,25)"] {
     transform: translate(70px, 37px);
     transition-delay: 120ms;
 }
@@ -426,11 +436,13 @@ nav a:hover {
     transition: transform 0.5s cubic-bezier(1, 0, 0.16, 1);
 }
 
-.solution-card:hover .implementation-icon-new .puzzle-left {
+.solution-card:hover .implementation-icon-new .puzzle-left,
+.solution-card.mobile-active .implementation-icon-new .puzzle-left {
     transform: translateX(10px);
 }
 
-.solution-card:hover .implementation-icon-new .puzzle-right {
+.solution-card:hover .implementation-icon-new .puzzle-right,
+.solution-card.mobile-active .implementation-icon-new .puzzle-right {
     transform: translateX(-10px);
 }
 
