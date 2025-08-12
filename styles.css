@@ -409,6 +409,25 @@ nav a:hover {
     stroke: white !important;
 }
 
+/* Puzzle piece animation */
+.implementation-icon-new .puzzle-left {
+    transform-origin: center;
+    transition: transform 0.5s cubic-bezier(0.8, 0, 0.265, 1);
+}
+
+.implementation-icon-new .puzzle-right {
+    transform-origin: center;
+    transition: transform 0.5s cubic-bezier(0.8, 0, 0.265, 1);
+}
+
+.solution-card:hover .implementation-icon-new .puzzle-left {
+    transform: translateX(10px);
+}
+
+.solution-card:hover .implementation-icon-new .puzzle-right {
+    transform: translateX(-10px);
+}
+
 .solution-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
