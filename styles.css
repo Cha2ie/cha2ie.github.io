@@ -57,29 +57,34 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%);
-    color: white;
-    padding: 4rem 0;
+    background: #F5F5F5;
+    color: #2E2E2E;
+    padding: 6rem 0 4rem 0;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 6rem);
+    margin-bottom: 2rem;
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
 }
 
 .hero-subtitle {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    opacity: 0.95;
+    opacity: 0.8;
+    color: #2E2E2E;
 }
 
 .hero-description {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
-    opacity: 0.9;
+    opacity: 0.7;
+    color: #2E2E2E;
 }
 
 /* Solutions Section */
@@ -264,7 +269,7 @@ nav a:hover {
 .reporting-icon-new .bar {
     transform-origin: 50% 100%;
     transform: scaleY(0);
-    transition: transform 420ms cubic-bezier(.2,.9,.2,1);
+    transition: transform 420ms cubic-bezier(.7,.9,.2,1);
     fill: #2E2E2E;
     opacity: 0.98;
 }
@@ -285,7 +290,7 @@ nav a:hover {
 .reporting-icon-new .trend-point {
     transform-origin: center center;
     transform: scale(1);
-    transition: transform 220ms ease, fill 220ms ease, cy 420ms ease, opacity 1.2s ease;
+    transition: transform 220ms ease, fill 220ms ease, cy 420ms ease, opacity 520ms ease;
     fill: #2E2E2E;
     opacity: 0;
 }
@@ -352,17 +357,18 @@ nav a:hover {
     }
 }
 
-/* Animation triggers on hover */
-.solution-card:hover .ai-lightbulb text {
-    animation: lightbulbRise 200ms ease-out forwards;
-    animation-delay: 120ms;
+/* Initial state */
+.ai-lightbulb text {
+    opacity: 0;
+    transform: translateY(40px) scale(1);
+    transition: opacity 300ms ease, transform 300ms ease;
 }
 
-/* Reset when not hovering */
-.solution-card:not(:hover) .ai-lightbulb text {
-    opacity: 0;
-    transform: translateY(30px) scale(0.5);
-    transition: opacity 200ms ease, transform 200ms ease;
+/* Animation triggers on hover */
+.solution-card:hover .ai-lightbulb text {
+    opacity: 1;
+    transform: translateY(3px) scale(1);
+    transition: opacity 200ms ease-out 120ms, transform 200ms ease-out 120ms;
 }
 
 /* Robot head lowering animation on hover */
@@ -412,12 +418,12 @@ nav a:hover {
 /* Puzzle piece animation */
 .implementation-icon-new .puzzle-left {
     transform-origin: center;
-    transition: transform 0.5s cubic-bezier(0.8, 0, 0.265, 1);
+    transition: transform 0.5s cubic-bezier(1, 0, 0.16, 1);
 }
 
 .implementation-icon-new .puzzle-right {
     transform-origin: center;
-    transition: transform 0.5s cubic-bezier(0.8, 0, 0.265, 1);
+    transition: transform 0.5s cubic-bezier(1, 0, 0.16, 1);
 }
 
 .solution-card:hover .implementation-icon-new .puzzle-left {
