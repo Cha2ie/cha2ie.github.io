@@ -196,6 +196,7 @@ nav a:hover {
     height: 100%;
     fill: white !important;
     stroke: white !important;
+    overflow: visible;
 }
 
 .ai-icon-new:hover svg {
@@ -339,72 +340,73 @@ nav a:hover {
     60% { transform: translateY(-5px); }
 }
 
-/* Binary stream animation - seamless loop */
-@keyframes binaryStream1 {
+/* AI Lightbulb animation - rises like an idea */
+@keyframes lightbulbRise {
     0% {
-        transform: translateX(0);
+        opacity: 0;
+        transform: translateY(30px) scale(1);
     }
     100% {
-        transform: translateX(165px);
-    }
-}
-
-@keyframes binaryStream2 {
-    0% {
-        transform: translateX(-165px);
-    }
-    100% {
-        transform: translateX(0);
+        opacity: 1;
+        transform: translateY(3px) scale(1);
     }
 }
 
 /* Animation triggers on hover */
-.solution-card:hover .binary-stream-1 {
-    animation: binaryStream1 4s linear infinite;
-}
-/*
-.solution-card:hover .binary-stream-2 {
-    animation: binaryStream1 4s linear infinite;
-    animation-delay: 3.5s;
-}
-*/
-
-/* Thought emoji animation */
-@keyframes thoughtAppear {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    20% {
-        opacity: 0.6;
-        transform: scale(1);
-    }
-    80% {
-        opacity: 0.6;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1);
-    }
+.solution-card:hover .ai-lightbulb text {
+    animation: lightbulbRise 200ms ease-out forwards;
+    animation-delay: 120ms;
 }
 
-.solution-card:hover .thought-emoji {
-    animation: thoughtAppear 3.5s ease-in-out infinite;
+/* Reset when not hovering */
+.solution-card:not(:hover) .ai-lightbulb text {
+    opacity: 0;
+    transform: translateY(30px) scale(0.5);
+    transition: opacity 200ms ease, transform 200ms ease;
 }
 
-.solution-card:hover .thought-emoji:nth-child(1) { animation-delay: 2s; }
-.solution-card:hover .thought-emoji:nth-child(2) { animation-delay: 2.8s; }
-.solution-card:hover .thought-emoji:nth-child(3) { animation-delay: 3.6s; }
-.solution-card:hover .thought-emoji:nth-child(4) { animation-delay: 4.4s; }
-
-/* Pause animations on hover for better UX */
-.solution-card:hover .ai-icon svg {
-    animation-play-state: paused;
+/* Robot head lowering animation on hover */
+.ai-icon-new svg g[transform="translate(70,25)"] {
+    transition: transform 200ms ease;
 }
 
-.solution-card:hover .implementation-icon svg {
-    animation-play-state: paused;
+.solution-card:hover .ai-icon-new svg g[transform="translate(70,25)"] {
+    transform: translate(70px, 37px);
+    transition-delay: 120ms;
+}
+
+/* New Implementation Icon Styles - matching other icons */
+.implementation-icon-new {
+    width: 240px;
+    height: 112px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 12px;
+    transition: all 420ms ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.implementation-icon-new:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Override SVG sizing and styling for implementation icon */
+.implementation-icon-new svg {
+    width: 100%;
+    height: 100%;
+    fill: white !important;
+    stroke: white !important;
+    overflow: visible;
+}
+
+.implementation-icon-new:hover svg {
+    fill: white !important;
+    stroke: white !important;
 }
 
 .solution-card h3 {
@@ -436,7 +438,7 @@ nav a:hover {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #EB944D;
+    color: #4DE0EB;
     font-weight: bold;
 }
 
