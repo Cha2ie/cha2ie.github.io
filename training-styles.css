@@ -3,21 +3,23 @@
 }
 
 .training-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 80px 0;
+    background: #F5F5F5;
+    color: #2E2E2E;
+    padding: 4rem 0;
     text-align: center;
 }
 
-.training-hero h1 {
-    font-size: 3.5rem;
+.training-hero h2 {
+    font-size: clamp(1.2rem, 3.5vw, 2.4rem);
     margin-bottom: 1rem;
     font-weight: 700;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
 }
 
 .training-subtitle {
     font-size: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     opacity: 0.9;
 }
 
@@ -52,15 +54,15 @@
 .search-dropdown {
     position: absolute;
     top: 100%;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    width: 90%;
     background: white;
-    border-radius: 0 0 20px 20px;
+    border-radius: 15px 15px 20px 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
     transition: all 0.3s ease;
     max-height: 300px;
     overflow-y: auto;
@@ -69,7 +71,7 @@
 .search-dropdown.show {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
 .dropdown-item {
@@ -140,7 +142,7 @@
 
 .video-thumbnail {
     height: 200px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4DE0EB 0%, #4DBCEB 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,7 +168,7 @@
 
 .play-button {
     background: rgba(255,255,255,0.9);
-    color: #667eea;
+    color: #4DE0EB;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -202,7 +204,7 @@
 .video-duration {
     display: inline-block;
     margin: 1rem 1.5rem 1.5rem;
-    background: #667eea;
+    background: #4DE0EB;
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;

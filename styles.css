@@ -59,14 +59,14 @@ nav a:hover {
 .hero {
     background: #F5F5F5;
     color: #2E2E2E;
-    padding: 6rem 0 4rem 0;
+    padding: 4rem 0 4rem 0;
     text-align: center;
 }
 
 .hero h2 {
     font-size: clamp(1.2rem, 3.5vw, 2.4rem);
-    margin-bottom: 0.2rem;
-    font-weight: 900;
+    margin-bottom: 1rem;
+    font-weight: 700;
     line-height: 0.85;
     letter-spacing: -0.02em;
 }
@@ -75,7 +75,7 @@ nav a:hover {
     font-size: clamp(2.5rem, 7vw, 5rem);
     margin-bottom: 2rem;
     margin-top: 0.1rem;
-    font-weight: 900;
+    font-weight: 700;
     line-height: 0.85;
     letter-spacing: -0.02em;
 }
@@ -120,7 +120,7 @@ nav a:hover {
 
 /* Solutions Section */
 .solutions {
-    padding: 4rem 0;
+    padding: 5rem 0;
     background: white;
 }
 
@@ -326,7 +326,7 @@ nav a:hover {
     transform: scale(1);
     transition: transform 220ms ease, fill 220ms ease, cy 420ms ease, opacity 520ms ease;
     fill: #2E2E2E;
-    opacity: 0;
+    opacity: 0.3;
 }
 
 /* Flickering animation for idle state */
@@ -487,11 +487,22 @@ nav a:hover {
     margin-bottom: 1.5rem;
     color: #2E2E2E;
     opacity: 0.8;
+    text-align:center;
 }
 
 .solution-card ul {
     list-style: none;
     text-align: left;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.solution-card.expanded ul {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 1rem;
 }
 
 .solution-card li {
@@ -508,6 +519,14 @@ nav a:hover {
     left: 0;
     color: #4DE0EB;
     font-weight: bold;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+}
+
+.solution-card li.tick-visible:before {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* Why Choose Us Section */
