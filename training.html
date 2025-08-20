@@ -14,14 +14,25 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="index.html#solutions">Solutions</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="training.html" class="active">Training</a></li>
+                    <li><a href="#" id="contactBtn">Contact</a>
+                        <div id="contactDropdown" class="contact-dropdown">
+                            <div class="contact-content">
+                                <div class="contact-info">
+                                    <p class="contact-phone">01273 327235</p>
+                                    <p class="contact-email">info@compitel.co.uk</p>
+                                </div>
+                                <button class="contact-close">&times;</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="training.html">Training</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
 
     <main class="training-main">
         <section class="training-hero">
@@ -68,6 +79,30 @@
         </div>
     </footer>
 
+    <script>
+        // Contact dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactBtn = document.getElementById('contactBtn');
+            const contactDropdown = document.getElementById('contactDropdown');
+            const contactClose = document.querySelector('.contact-close');
+            
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                contactDropdown.classList.add('active');
+            });
+            
+            contactClose.addEventListener('click', function() {
+                contactDropdown.classList.remove('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!contactDropdown.contains(e.target) && !contactBtn.contains(e.target)) {
+                    contactDropdown.classList.remove('active');
+                }
+            });
+        });
+    </script>
     <script src="training-script.js"></script>
 </body>
 </html>
