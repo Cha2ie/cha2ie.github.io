@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporting Suite - Compitel</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Apple-style vertical scroll layout */
+        .apple-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apple-hero {
+            background: #F5F5F5;
+            color: #2E2E2E;
+            text-align: center;
+            padding: 4rem 20px;
+        }
+
+        .apple-hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            line-height: 0.85;
+        }
+
+        .apple-hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.4;
+            color: #2E2E2E;
+        }
+
+        .quick-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .quick-nav-btn {
+            background: #005EB8;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 94, 184, 0.3);
+        }
+
+        .quick-nav-btn:hover {
+            background: #003D82;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 94, 184, 0.4);
+        }
+
+        .hospice-btn {
+            background: #2E2E2E;
+            box-shadow: 0 4px 15px rgba(46, 46, 46, 0.3);
+        }
+
+        .hospice-btn:hover {
+            background: #1A1A1A;
+            box-shadow: 0 8px 25px rgba(46, 46, 46, 0.4);
+        }
+
+        .feature-section {
+            background: white;
+            padding: 8rem 0;
+        }
+
+        .feature-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 6rem;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .feature-text {
+            z-index: 2;
+        }
+
+        .feature-text h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #2E2E2E;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .feature-text p {
+            font-size: 1.2rem;
+            color: #2E2E2E;
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            font-size: 1.1rem;
+            color: #2E2E2E;
+            opacity: 0.9;
+            position: relative;
+            padding-left: 2rem;
+            border-bottom: 1px solid rgba(46, 46, 46, 0.1);
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #005EB8;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .hospice-section .feature-list li:before {
+            color: #2E2E2E;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-image {
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .feature-image img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-image:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+        }
+
+        .feature-image img:hover {
+            cursor: zoom-in;
+        }
+
+        .large-image-section {
+            min-height: 40vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 4rem 0;
+        }
+
+        .large-image-overlay {
+            background: rgba(46, 46, 46, 0.7);
+            color: white;
+            padding: 2.5rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+        }
+
+        .large-image-overlay h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .large-image-overlay p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .reverse-layout .feature-content {
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        .reverse-layout .feature-text {
+            order: 2;
+        }
+
+        .reverse-layout .feature-image {
+            order: 1;
+        }
+
+        .benefits-section {
+            background: #F5F5F5;
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            padding: 0 40px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            color: #2E2E2E;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .benefit-card p {
+            color: #2E2E2E;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Image modal styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .image-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 95%;
+            max-height: 95%;
+            margin: auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .apple-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .quick-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .quick-nav-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .feature-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                padding: 0 20px;
+            }
+
+            .reverse-layout .feature-text,
+            .reverse-layout .feature-image {
+                order: unset;
+            }
+
+            .feature-text h2 {
+                font-size: 2rem;
+            }
+
+            .large-image-section {
+                background-attachment: scroll;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+
+            .feature-image img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="lib/Compitel Logo Full (White Background - Tight Crop).png" alt="Compitel Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#solutions">Solutions</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#" id="contactBtn">Contact</a>
+                        <div id="contactDropdown" class="contact-dropdown">
+                            <div class="contact-content">
+                                <div class="contact-info">
+                                    <p class="contact-phone">01273 327235</p>
+                                    <p class="contact-email">info@compitel.co.uk</p>
+                                </div>
+                                <button class="contact-close">&times;</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="training.html">Training</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="apple-section apple-hero">
+            <div>
+                <h1>Reporting Suite</h1>
+                <p class="subtitle">Transform your healthcare data into actionable insights with automated tools for caseload management and hospice oversight</p>
+                <div class="quick-nav">
+                    <a href="#caseload-management" class="quick-nav-btn">Caseload Management</a>
+                    <a href="#hospice-management" class="quick-nav-btn hospice-btn">Hospice Management</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Large Image Section 1 - Caseload Management Suite -->
+        <section id="caseload-management" class="large-image-section" style="background-image: linear-gradient(rgba(0, 94, 184, 0.8), rgba(0, 61, 130, 0.8)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 600%22><rect width=%221000%22 height=%22600%22 fill=%22%23f0f0f0%22/></svg>');">
+            <div class="large-image-overlay">
+                <h2>Caseload Management Suite</h2>
+                <p>Comprehensive tools for managing patient caseloads, delivered through email or SharePoint integration with real-time updates available.</p>
+            </div>
+        </section>
+
+        <!-- Patient Acuity Tool Section -->
+        <section class="feature-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>Patient Acuity Tool</h2>
+                    <p>The cornerstone of our Caseload Management Suite. Comprehensive patient acuity assessment and monitoring delivered directly to your inbox or SharePoint. Real-time scoring and automated risk stratification ensure no patient falls through the cracks.</p>
+                    <ul class="feature-list">
+                        <li>Real-time acuity scoring and risk assessment</li>
+                        <li>Automated risk stratification with customizable thresholds</li>
+                        <li>Email or SharePoint delivery options</li>
+                        <li>Daily, weekly, or monthly scheduling flexibility</li>
+                        <li>Integration with existing clinical workflows</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="lib/Email Acuity List Cropped.png" alt="Patient Acuity Tool Email Report" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Missing Data Section -->
+        <section class="feature-section reverse-layout">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>Missing Data Detection</h2>
+                    <p>Part of the Caseload Management Suite. Identify and track missing critical patient data to ensure comprehensive care documentation. Automated detection with priority-based alerts helps maintain data quality standards.</p>
+                    <ul class="feature-list">
+                        <li>Automated data gap detection across all records</li>
+                        <li>Priority-based missing data alerts and notifications</li>
+                        <li>Progress tracking and resolution monitoring</li>
+                        <li>Seamless SharePoint integration</li>
+                        <li>Real-time updates and customizable reporting</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="lib/SharePoint Missing Data List Cropped.png" alt="Missing Data SharePoint List" />
+                </div>
+            </div>
+        </section>
+
+        <!-- No Future Appointments Section -->
+        <section class="feature-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>No Future Appointments</h2>
+                    <p>Part of the Caseload Management Suite. Monitor patients without scheduled future appointments to ensure continuity of care. Proactive identification prevents care gaps and maintains patient safety standards.</p>
+                    <ul class="feature-list">
+                        <li>Proactive appointment gap identification</li>
+                        <li>Automated patient follow-up alerts</li>
+                        <li>Care continuity monitoring and reporting</li>
+                        <li>Integration with existing scheduling systems</li>
+                        <li>Flexible reporting schedules to match workflow</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="lib/SharePoint No Future Appointment List Cropped.png" alt="No Future Appointments SharePoint List" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Large Image Section 2 -->
+        <section id="hospice-management" class="large-image-section" style="background-image: linear-gradient(rgba(46, 46, 46, 0.8), rgba(46, 46, 46, 0.6)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 600%22><rect width=%221000%22 height=%22600%22 fill=%22%232E2E2E%22/></svg>');">
+            <div class="large-image-overlay">
+                <h2>Hospice Management</h2>
+                <p>Comprehensive reporting tools designed for hospice oversight, providing automated insights for strategic decision-making.</p>
+            </div>
+        </section>
+
+        <!-- Automated Audit Reports Section -->
+        <section class="feature-section reverse-layout hospice-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>Automated Audit Reports</h2>
+                    <p>Part of the Hospice Management suite. Comprehensive automated audit reporting for compliance, quality assurance, and performance monitoring. Stay ahead of regulatory requirements with intelligent reporting.</p>
+                    <ul class="feature-list">
+                        <li>Regulatory compliance tracking and monitoring</li>
+                        <li>Quality indicator monitoring with trend analysis</li>
+                        <li>Automated report generation and distribution</li>
+                        <li>Executive summary dashboards with key metrics</li>
+                        <li>Scheduled delivery options for stakeholders</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect width='600' height='400' fill='%23f8f9fa'/><rect x='50' y='50' width='500' height='300' fill='white' stroke='%23e9ecef'/><text x='300' y='200' text-anchor='middle' fill='%236c757d' font-size='24'>Audit Report Preview</text></svg>" alt="Automated Audit Reports" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Generated PowerPoint Slides Section -->
+        <section class="feature-section hospice-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>Generated PowerPoint Slides</h2>
+                    <p>Part of the Hospice Management suite. Professionally formatted PowerPoint presentations automatically generated from your data for board meetings and stakeholder updates. Save hours of manual preparation.</p>
+                    <ul class="feature-list">
+                        <li>Automated slide generation from live data</li>
+                        <li>Professional templates with customizable branding</li>
+                        <li>Data visualization and interactive charts</li>
+                        <li>Ready-to-present format with executive summaries</li>
+                        <li>Scheduled generation for regular meetings</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect width='600' height='400' fill='%23f8f9fa'/><rect x='50' y='50' width='500' height='300' fill='white' stroke='%23e9ecef'/><text x='300' y='200' text-anchor='middle' fill='%236c757d' font-size='24'>PowerPoint Preview</text></svg>" alt="Generated PowerPoint Slides" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Early Warning Systems Section -->
+        <section class="feature-section reverse-layout hospice-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>Early Warning Systems</h2>
+                    <p>Part of the Hospice Management suite. Proactive monitoring and alerting system to identify potential issues before they become critical problems. Predictive analytics help you stay ahead of risks.</p>
+                    <ul class="feature-list">
+                        <li>Predictive analytics with machine learning</li>
+                        <li>Risk threshold monitoring and early alerts</li>
+                        <li>Automated escalation alerts to key personnel</li>
+                        <li>Trend analysis and forecasting capabilities</li>
+                        <li>Real-time dashboard monitoring and notifications</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect width='600' height='400' fill='%23f8f9fa'/><rect x='50' y='50' width='500' height='300' fill='white' stroke='%23e9ecef'/><text x='300' y='200' text-anchor='middle' fill='%236c757d' font-size='24'>Early Warning Dashboard</text></svg>" alt="Early Warning Systems" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2 style="font-size: 3rem; margin-bottom: 2rem; color: #2E2E2E;">Key Benefits</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>Real-Time Updates</h3>
+                        <p>All reporting tools provide real-time data updates ensuring you always have the most current information for critical decision-making.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Flexible Delivery</h3>
+                        <p>Choose between email delivery or SharePoint integration to match your organisation's existing workflow and preferences.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Customizable Scheduling</h3>
+                        <p>Set up daily, weekly, or monthly reporting schedules that align perfectly with your operational needs and meeting cycles.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Automated Insights</h3>
+                        <p>Transform complex healthcare data into clear, actionable insights without manual intervention or technical expertise required.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Integration Ready</h3>
+                        <p>Seamlessly integrates with existing systems including SharePoint, email platforms, and healthcare databases.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Scalable Solution</h3>
+                        <p>Designed to grow with your organisation, supporting increasing data volumes and expanding reporting requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Compitel. All rights reserved. | Specialist SystmOne solutions for UK healthcare.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Contact dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactBtn = document.getElementById('contactBtn');
+            const contactDropdown = document.getElementById('contactDropdown');
+            const contactClose = document.querySelector('.contact-close');
+            
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                contactDropdown.classList.add('active');
+            });
+            
+            contactClose.addEventListener('click', function() {
+                contactDropdown.classList.remove('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!contactDropdown.contains(e.target) && !contactBtn.contains(e.target)) {
+                    contactDropdown.classList.remove('active');
+                }
+            });
+
+            // Initialize animations and image modal
+            // Add initial styles for animation
+            const animatedElements = document.querySelectorAll('.feature-text, .feature-image, .benefit-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(50px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Parallax effect for large image sections
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.large-image-section');
+                
+                parallaxElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    const elementTop = rect.top + scrolled;
+                    const elementHeight = rect.height;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (scrolled + windowHeight > elementTop && scrolled < elementTop + elementHeight) {
+                        const yPos = -(scrolled - elementTop) * 0.3;
+                        element.style.transform = `translateY(${yPos}px)`;
+                    }
+                });
+            });
+
+            // Image modal functionality
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const closeModal = document.querySelector('.close-modal');
+            
+            // Add click handlers to all feature images
+            document.querySelectorAll('.feature-image img').forEach(img => {
+                img.addEventListener('click', function() {
+                    modal.classList.add('active');
+                    modalImg.src = this.src;
+                    modalImg.alt = this.alt;
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close modal handlers
+            closeModal.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Close modal with escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

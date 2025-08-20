@@ -12,22 +12,33 @@
             <img src="lib/Compitel Logo Full (White Background - Tight Crop).png" alt="Compitel Logo" class="logo">
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#solutions">Solutions</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" id="contactBtn">Contact</a>
+                        <div id="contactDropdown" class="contact-dropdown">
+                            <div class="contact-content">
+                                <div class="contact-info">
+                                    <p class="contact-phone">01273 327235</p>
+                                    <p class="contact-email">info@compitel.co.uk</p>
+                                </div>
+                                <button class="contact-close">&times;</button>
+                            </div>
+                        </div>
+                    </li>
                     <li><a href="training.html">Training</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+
     <main>
         <section id="hero" class="hero">
             <div class="container">
                 <h2>Specialists in</h2>
                 <h1>Hospice Digitalisation</h1>
-                <p class="hero-subtitle hero-subtitle-part1">We take care of your digital challenges </p>
+                <p class="hero-subtitle hero-subtitle-part1">We take care of your digital challenges, </p>
                 <p class="hero-subtitle hero-subtitle-part2">so that you can take care of your patients.</p>
             </div>
         </section>
@@ -81,7 +92,7 @@
                         </ul>
                     </div>
 
-                    <a href="systmone-reporting.html" class="solution-card">
+                    <a href="reporting-suite.html" class="solution-card">
                         <div class="solution-icon reporting-icon-new">
                             <svg viewBox="0 0 240 112" width="100%" height="100%" role="img" aria-hidden="true" focusable="false">
                                 <rect x="0" y="0" width="240" height="112" rx="24" fill="transparent" stroke="none"></rect>
@@ -170,6 +181,29 @@
     </footer>
 
     <script>
+        // Contact dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactBtn = document.getElementById('contactBtn');
+            const contactDropdown = document.getElementById('contactDropdown');
+            const contactClose = document.querySelector('.contact-close');
+            
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                contactDropdown.classList.add('active');
+            });
+            
+            contactClose.addEventListener('click', function() {
+                contactDropdown.classList.remove('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!contactDropdown.contains(e.target) && !contactBtn.contains(e.target)) {
+                    contactDropdown.classList.remove('active');
+                }
+            });
+        });
+
         // Mobile scroll-triggered hover effect
         function isMobile() {
             return window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
