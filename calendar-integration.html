@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outlook/SystmOne Calendar Integration - Compitel</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hero section with video and text side by side */
+        .hero-split {
+            background: #F5F5F5;
+            padding: 6rem 0;
+            min-height: 70vh;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .video-container {
+            position: relative;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .video-placeholder .play-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .video-placeholder .autoplay-indicator {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: #2E2E2E;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #2E2E2E;
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text .key-points {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .hero-text .key-points li {
+            padding: 0.8rem 0;
+            font-size: 1.1rem;
+            color: #2E2E2E;
+            opacity: 0.9;
+            position: relative;
+            padding-left: 2rem;
+            border-bottom: 1px solid rgba(46, 46, 46, 0.1);
+        }
+
+        .hero-text .key-points li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .hero-text .key-points li:last-child {
+            border-bottom: none;
+        }
+
+        /* Feature sections */
+        .feature-section {
+            background: white;
+            padding: 6rem 0;
+        }
+
+        .feature-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .feature-content h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2E2E2E;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .feature-content p {
+            font-size: 1.2rem;
+            color: #2E2E2E;
+            opacity: 0.8;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: #F8F9FA;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: left;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #059669;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(5, 150, 105, 0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #2E2E2E;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #2E2E2E;
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-card ul li {
+            padding: 0.5rem 0;
+            color: #2E2E2E;
+            opacity: 0.9;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-card ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+
+        /* Final demo section */
+        .demo-section {
+            background: #F5F5F5;
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .demo-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .demo-content h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #2E2E2E;
+            margin-bottom: 2rem;
+        }
+
+        .demo-content p {
+            font-size: 1.3rem;
+            color: #2E2E2E;
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+
+        .demo-video {
+            position: relative;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            margin: 0 auto;
+        }
+
+        .demo-video-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .demo-video-placeholder .play-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 0 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .video-placeholder {
+                height: 300px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .feature-content,
+            .demo-content {
+                padding: 0 20px;
+            }
+
+            .feature-content h2,
+            .demo-content h2 {
+                font-size: 2rem;
+            }
+
+            .demo-video-placeholder {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="lib/Compitel Logo Full (White Background - Tight Crop).png" alt="Compitel Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#solutions">Solutions</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#" id="contactBtn">Contact</a>
+                        <div id="contactDropdown" class="contact-dropdown">
+                            <div class="contact-content">
+                                <div class="contact-info">
+                                    <p class="contact-phone">01273 327235</p>
+                                    <p class="contact-email">info@compitel.co.uk</p>
+                                </div>
+                                <button class="contact-close">&times;</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="training.html">Training</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Video and Text -->
+        <section class="hero-split">
+            <div class="hero-content">
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <div class="autoplay-indicator">Auto-playing</div>
+                        <div class="play-icon">▶️</div>
+                        <div>Calendar Integration Overview</div>
+                        <small>Live sync demonstration video placeholder</small>
+                    </div>
+                </div>
+                <div class="hero-text">
+                    <h1>Outlook/SystmOne Calendar Integration</h1>
+                    <p>Seamlessly synchronize your SystmOne appointments with Outlook calendars, ensuring your team has a unified view of patient schedules and eliminating scheduling conflicts.</p>
+                    <ul class="key-points">
+                        <li>Real-time bidirectional synchronization</li>
+                        <li>Automatic conflict detection and resolution</li>
+                        <li>Customizable sync preferences per user</li>
+                        <li>Annual leave integration</li>
+                        <li>Mobile calendar access for field staff</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Per User Configuration Section -->
+        <section class="feature-section">
+            <div class="feature-content">
+                <h2>Per User Configuration</h2>
+                <p>Every team member has unique scheduling needs. Our integration allows individual users to customize their sync preferences, ensuring the calendar integration works exactly how they need it to.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Selective Synchronization</h3>
+                        <p>Choose which types of appointments and events to sync between your calendars.</p>
+                        <ul>
+                            <li>Patient appointments</li>
+                            <li>Team meetings</li>
+                            <li>Training sessions</li>
+                            <li>Personal reminders</li>
+                            <li>Administrative tasks</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Directional Control</h3>
+                        <p>Decide whether sync should be bidirectional or one-way only to maintain data integrity.</p>
+                        <ul>
+                            <li>SystmOne to Outlook only</li>
+                            <li>Outlook to SystmOne only</li>
+                            <li>Full bidirectional sync</li>
+                            <li>Read-only calendar views</li>
+                            <li>Custom field mapping</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Privacy Settings</h3>
+                        <p>Control what information is visible and editable across different calendar platforms.</p>
+                        <ul>
+                            <li>Patient data anonymization</li>
+                            <li>Appointment details visibility</li>
+                            <li>Location information sharing</li>
+                            <li>Notes and comments sync</li>
+                            <li>Attendee list management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Annual Leave Integration Section -->
+        <section class="feature-section" style="background: #F8F9FA;">
+            <div class="feature-content">
+                <h2>Annual Leave Integration</h2>
+                <p>Automatically sync annual leave, sick days, and time off requests between your HR systems and calendars, ensuring accurate scheduling and resource planning.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Automatic Leave Detection</h3>
+                        <p>The system automatically identifies and syncs various types of leave across all calendar platforms.</p>
+                        <ul>
+                            <li>Annual holiday bookings</li>
+                            <li>Sick leave notifications</li>
+                            <li>Training and conference attendance</li>
+                            <li>Compassionate leave</li>
+                            <li>Flexible working arrangements</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Team Visibility</h3>
+                        <p>Managers and coordinators can see team availability at a glance for better resource planning.</p>
+                        <ul>
+                            <li>Department-wide leave overview</li>
+                            <li>Minimum staffing level alerts</li>
+                            <li>Cover arrangement suggestions</li>
+                            <li>Shift pattern adjustments</li>
+                            <li>Emergency contact protocols</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Integration Sources</h3>
+                        <p>Connect with your existing HR and workforce management systems for seamless data flow.</p>
+                        <ul>
+                            <li>HR information systems</li>
+                            <li>Payroll platforms</li>
+                            <li>Time and attendance systems</li>
+                            <li>Rota management tools</li>
+                            <li>Employee self-service portals</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Demo Section -->
+        <section class="demo-section">
+            <div class="demo-content">
+                <h2>See It In Action</h2>
+                <p>Watch our comprehensive demonstration showing how to set up, configure, and use the Outlook/SystmOne calendar integration in your daily workflow.</p>
+                
+                <div class="demo-video">
+                    <div class="demo-video-placeholder">
+                        <div class="play-icon">▶️</div>
+                        <div>Complete Setup & Usage Guide</div>
+                        <small>Detailed demonstration video placeholder (15+ minutes)</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Compitel. All rights reserved. | Specialist SystmOne solutions for UK healthcare.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Contact dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactBtn = document.getElementById('contactBtn');
+            const contactDropdown = document.getElementById('contactDropdown');
+            const contactClose = document.querySelector('.contact-close');
+            
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                contactDropdown.classList.add('active');
+            });
+            
+            contactClose.addEventListener('click', function() {
+                contactDropdown.classList.remove('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!contactDropdown.contains(e.target) && !contactBtn.contains(e.target)) {
+                    contactDropdown.classList.remove('active');
+                }
+            });
+
+            // Simulate autoplay behavior for demo purposes
+            // In real implementation, this would be a proper video element with autoplay
+            const autoplayIndicator = document.querySelector('.autoplay-indicator');
+            if (autoplayIndicator) {
+                setTimeout(() => {
+                    autoplayIndicator.style.opacity = '0.7';
+                    autoplayIndicator.innerHTML = 'Playing...';
+                }, 1000);
+            }
+
+            // Smooth scroll animations for feature cards
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Add initial styles and observe feature cards
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

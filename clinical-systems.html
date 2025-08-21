@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Systems - Compitel</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Apple-style vertical scroll layout */
+        .apple-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apple-hero {
+            background: #F5F5F5;
+            color: #2E2E2E;
+            text-align: center;
+            padding: 4rem 20px;
+        }
+
+        .apple-hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            line-height: 0.85;
+        }
+
+        .apple-hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.4;
+            color: #2E2E2E;
+        }
+
+        .quick-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .quick-nav-btn {
+            background: #1E40AF;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+        }
+
+        .quick-nav-btn:hover {
+            background: #1E3A8A;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.4);
+        }
+
+        .integration-btn {
+            background: #0891B2;
+            box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
+        }
+
+        .integration-btn:hover {
+            background: #0E7490;
+            box-shadow: 0 8px 25px rgba(8, 145, 178, 0.4);
+        }
+
+        .feature-section {
+            background: white;
+            padding: 8rem 0;
+        }
+
+        .feature-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 6rem;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .feature-text {
+            z-index: 2;
+        }
+
+        .feature-text h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #2E2E2E;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .feature-text p {
+            font-size: 1.2rem;
+            color: #2E2E2E;
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            font-size: 1.1rem;
+            color: #2E2E2E;
+            opacity: 0.9;
+            position: relative;
+            padding-left: 2rem;
+            border-bottom: 1px solid rgba(46, 46, 46, 0.1);
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1E40AF;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .integration-section .feature-list li:before {
+            color: #0891B2;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-media {
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .feature-media img,
+        .feature-media video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-media:hover img,
+        .feature-media:hover video {
+            transform: scale(1.05);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+        }
+
+        .media-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            background: #f8f9fa;
+            border: 2px dashed #e9ecef;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #6c757d;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .media-placeholder:hover {
+            background: #f1f3f4;
+            transform: scale(1.02);
+        }
+
+        .media-placeholder .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .large-image-section {
+            min-height: 40vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 4rem 0;
+        }
+
+        .large-image-overlay {
+            background: rgba(46, 46, 46, 0.7);
+            color: white;
+            padding: 2.5rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+        }
+
+        .large-image-overlay h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .large-image-overlay p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .reverse-layout .feature-content {
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        .reverse-layout .feature-text {
+            order: 2;
+        }
+
+        .reverse-layout .feature-media {
+            order: 1;
+        }
+
+        .benefits-section {
+            background: #F5F5F5;
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            padding: 0 40px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            color: #2E2E2E;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .benefit-card p {
+            color: #2E2E2E;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Image modal styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .image-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 95%;
+            max-height: 95%;
+            margin: auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .apple-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .quick-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .quick-nav-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .feature-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                padding: 0 20px;
+            }
+
+            .reverse-layout .feature-text,
+            .reverse-layout .feature-media {
+                order: unset;
+            }
+
+            .feature-text h2 {
+                font-size: 2rem;
+            }
+
+            .large-image-section {
+                background-attachment: scroll;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+
+            .feature-media img,
+            .feature-media video,
+            .media-placeholder {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="lib/Compitel Logo Full (White Background - Tight Crop).png" alt="Compitel Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#solutions">Solutions</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#" id="contactBtn">Contact</a>
+                        <div id="contactDropdown" class="contact-dropdown">
+                            <div class="contact-content">
+                                <div class="contact-info">
+                                    <p class="contact-phone">01273 327235</p>
+                                    <p class="contact-email">info@compitel.co.uk</p>
+                                </div>
+                                <button class="contact-close">&times;</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="training.html">Training</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="apple-section apple-hero">
+            <div>
+                <h1>Clinical Systems</h1>
+                <p class="subtitle">Expert implementation and integration of clinical systems to enhance patient care, streamline workflows, and ensure seamless data connectivity</p>
+                <div class="quick-nav">
+                    <a href="#system-implementations" class="quick-nav-btn">System Implementations</a>
+                    <a href="#system-integrations" class="quick-nav-btn integration-btn">System Integrations</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Large Image Section 1 - System Implementations -->
+        <section id="system-implementations" class="large-image-section" style="background-image: linear-gradient(rgba(30, 64, 175, 0.8), rgba(30, 58, 138, 0.8)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 600%22><rect width=%221000%22 height=%22600%22 fill=%22%23f0f0f0%22/></svg>');">
+            <div class="large-image-overlay">
+                <h2>System Implementations</h2>
+                <p>Expert deployment of clinical systems with comprehensive project management, training, and ongoing support for seamless adoption.</p>
+            </div>
+        </section>
+
+        <!-- SystmOne Implementations Section -->
+        <section class="feature-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>SystmOne Implementations</h2>
+                    <p>Comprehensive SystmOne deployment services from initial planning through go-live and beyond. Our expert team ensures smooth implementation with minimal disruption to your clinical operations and maximum user adoption.</p>
+                    <ul class="feature-list">
+                        <li>Complete project management from planning to go-live</li>
+                        <li>Data migration and system configuration</li>
+                        <li>Comprehensive user training and change management</li>
+                        <li>Workflow optimization and best practice implementation</li>
+                        <li>Ongoing support and system optimization</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <div class="media-placeholder">
+                        <div class="icon">💻</div>
+                        <div>SystmOne Implementation Process</div>
+                        <small>Project timeline and implementation methodology video</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ePMA/EPS Implementations Section -->
+        <section class="feature-section reverse-layout">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>ePMA/EPS Implementations</h2>
+                    <p>Electronic Prescribing and Medicines Administration (ePMA) and Electronic Prescription Service (EPS) implementations that enhance medication safety, reduce errors, and streamline pharmaceutical workflows in hospice care settings.</p>
+                    <ul class="feature-list">
+                        <li>ePMA system configuration for hospice-specific workflows</li>
+                        <li>EPS integration with local pharmacies and suppliers</li>
+                        <li>Clinical decision support and safety alert configuration</li>
+                        <li>Staff training on digital prescribing best practices</li>
+                        <li>Compliance monitoring and audit trail implementation</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <div class="media-placeholder">
+                        <div class="icon">💊</div>
+                        <div>ePMA/EPS Implementation Journey</div>
+                        <small>Before and after workflow comparison and training materials</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Large Image Section 2 - System Integrations -->
+        <section id="system-integrations" class="large-image-section" style="background-image: linear-gradient(rgba(8, 145, 178, 0.8), rgba(14, 116, 144, 0.8)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 600%22><rect width=%221000%22 height=%22600%22 fill=%22%23f0f0f0%22/></svg>');">
+            <div class="large-image-overlay">
+                <h2>System Integrations</h2>
+                <p>Seamless connectivity between clinical systems, enabling efficient data flow and unified workflows across your healthcare technology ecosystem.</p>
+            </div>
+        </section>
+
+        <!-- SystmOne/EMIS Web Integrations Section -->
+        <section class="feature-section integration-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>SystmOne/EMIS Web Integrations</h2>
+                    <p>Bridge the gap between different clinical systems with seamless integrations that enable unified patient records, shared care pathways, and coordinated clinical workflows across primary and specialist care providers.</p>
+                    <ul class="feature-list">
+                        <li>Real-time bidirectional data synchronization</li>
+                        <li>Unified patient record views across systems</li>
+                        <li>Automated care pathway coordination</li>
+                        <li>Secure data exchange with HL7 FHIR standards</li>
+                        <li>Comprehensive integration monitoring and support</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <div class="media-placeholder">
+                        <div class="icon">🔗</div>
+                        <div>System Integration Architecture</div>
+                        <small>Technical architecture diagrams and data flow visualization</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2 style="font-size: 3rem; margin-bottom: 2rem; color: #2E2E2E;">Key Benefits</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>Expert Implementation</h3>
+                        <p>Proven methodology with experienced project managers ensuring successful system deployments with minimal disruption.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Seamless Integration</h3>
+                        <p>Connect disparate systems to create unified workflows and comprehensive patient record views across platforms.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Comprehensive Training</h3>
+                        <p>Thorough user training and change management support to ensure maximum system adoption and efficiency gains.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Ongoing Support</h3>
+                        <p>Continuous system optimization and technical support to maintain peak performance and address evolving needs.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Enhanced Patient Safety</h3>
+                        <p>Improved medication management, clinical decision support, and error reduction through properly implemented systems.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Regulatory Compliance</h3>
+                        <p>Ensure all implementations meet healthcare regulatory requirements and maintain comprehensive audit trails.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Compitel. All rights reserved. | Specialist SystmOne solutions for UK healthcare.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Contact dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactBtn = document.getElementById('contactBtn');
+            const contactDropdown = document.getElementById('contactDropdown');
+            const contactClose = document.querySelector('.contact-close');
+            
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                contactDropdown.classList.add('active');
+            });
+            
+            contactClose.addEventListener('click', function() {
+                contactDropdown.classList.remove('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!contactDropdown.contains(e.target) && !contactBtn.contains(e.target)) {
+                    contactDropdown.classList.remove('active');
+                }
+            });
+
+            // Initialize animations and image modal
+            // Add initial styles for animation
+            const animatedElements = document.querySelectorAll('.feature-text, .feature-media, .benefit-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(50px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Parallax effect for large image sections
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.large-image-section');
+                
+                parallaxElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    const elementTop = rect.top + scrolled;
+                    const elementHeight = rect.height;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (scrolled + windowHeight > elementTop && scrolled < elementTop + elementHeight) {
+                        const yPos = -(scrolled - elementTop) * 0.3;
+                        element.style.transform = `translateY(${yPos}px)`;
+                    }
+                });
+            });
+
+            // Image modal functionality
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const closeModal = document.querySelector('.close-modal');
+            
+            // Add click handlers to all feature images
+            document.querySelectorAll('.feature-media img').forEach(img => {
+                img.addEventListener('click', function() {
+                    modal.classList.add('active');
+                    modalImg.src = this.src;
+                    modalImg.alt = this.alt;
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close modal handlers
+            closeModal.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Close modal with escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
