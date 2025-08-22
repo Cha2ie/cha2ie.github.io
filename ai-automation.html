@@ -384,8 +384,7 @@
 <body>
     <header>
         <div class="container">
-            <img src="lib/Compitel Logo Full (White Background - Tight Crop).png" alt="Compitel Logo" class="logo">
-            <nav>
+<a href="index.html"><img src="lib/Compitel Logo Full (White Background - Tight Crop).png" alt="Compitel Logo" class="logo"></a>            <nav>
                 <ul>
                     <li><a href="index.html">Solutions</a></li>
                     <li><a href="about.html">About</a></li>
@@ -417,8 +416,28 @@
             </div>
         </section>
 
-        <!-- Smart Letter Writing Section -->
+        <!-- Acuity Tool Section -->
         <section class="feature-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>Acuity Tool</h2>
+                    <p>Advanced patient prioritization system using IPOS (Integrated Palliative care Outcome Scale) and POI (Priority of Intervention) metrics. This intelligent tool ensures that patients are never forgotten and receive the right level of care at the right time.</p>
+                    <ul class="feature-list">
+                        <li>IPOS-based patient assessment and scoring</li>
+                        <li>POI-driven care prioritization algorithms</li>
+                        <li>Automated patient risk stratification</li>
+                        <li>Visual priority dashboards and alerts</li>
+                        <li>Ensures no patient falls through the cracks</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <img src="lib/SharePoint Acuity List Full.png" alt="Acuity Tool - Patient Prioritization Dashboard" onclick="openImageModal(this)">
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Letter Writing Section -->
+        <section class="feature-section reverse-layout">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2 style="position: relative;">Smart Letter Writing <span style="position: absolute; top: -40px; left: -70px; background: #6B46C1; color: white; font-size: 0.6em; padding: 0.3em 0.8em; border-radius: 12px; font-weight: 500; transform: rotate(-12deg); box-shadow: 0 2px 6px rgba(107, 70, 193, 0.3); z-index: 1;">Beta</span></h2>
@@ -470,6 +489,26 @@
             <div class="large-image-overlay">
                 <h2>Workflow Automation</h2>
                 <p>Streamline your daily operations with intelligent automation that reduces administrative burden and ensures nothing falls through the cracks.</p>
+            </div>
+        </section>
+
+        <!-- Clinical Auditing Section -->
+        <section class="feature-section automation-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>Clinical Auditing</h2>
+                    <p>Automated clinical quality assurance system that continuously monitors patient records to identify missing data, medication discrepancies, and documentation quality issues. Ensures comprehensive patient care and regulatory compliance.</p>
+                    <ul class="feature-list">
+                        <li>Automated detection of missing patient data fields</li>
+                        <li>Medication reconciliation and safety checks</li>
+                        <li>Clinical note quality assessment and scoring</li>
+                        <li>Real-time alerts for incomplete documentation</li>
+                        <li>Comprehensive audit trails and reporting</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <img src="lib/SharePoint Missing Data List Cropped.png" alt="Clinical Auditing - Missing Data Detection Dashboard" onclick="openImageModal(this)">
+                </div>
             </div>
         </section>
 
@@ -650,6 +689,17 @@
                     document.body.style.overflow = 'hidden';
                 });
             });
+        });
+
+        // Global function for opening image modal (used by onclick handlers)
+        function openImageModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.classList.add('active');
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            document.body.style.overflow = 'hidden';
+        }
             
             // Close modal handlers
             closeModal.addEventListener('click', function() {
@@ -671,7 +721,7 @@
                     document.body.style.overflow = 'auto';
                 }
             });
-        });
+        
     </script>
 </body>
 </html>
