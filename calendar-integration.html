@@ -14,11 +14,11 @@
         }
 
         .hero-content {
-            max-width: 1400px;
+            max-width: 1800px;
             margin: 0 auto;
             padding: 0 40px;
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 2.5fr 1fr;
             gap: 6rem;
             align-items: center;
         }
@@ -26,9 +26,19 @@
         .video-container {
             position: relative;
             background: #000;
-            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            min-width: 800px;
+            width: 100%;
+            line-height: 0;
+            font-size: 0;
+        }
+
+        .video-container video {
+            display: block;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
         }
 
         .video-placeholder {
@@ -203,7 +213,7 @@
         }
 
         .demo-content {
-            max-width: 1000px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -226,7 +236,6 @@
         .demo-video {
             position: relative;
             background: #000;
-            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0,0,0,0.2);
             margin: 0 auto;
@@ -306,12 +315,10 @@
         <section class="hero-split">
             <div class="hero-content">
                 <div class="video-container">
-                    <div class="video-placeholder">
-                        <div class="autoplay-indicator">Auto-playing</div>
-                        <div class="play-icon">▶️</div>
-                        <div>Calendar Integration Overview</div>
-                        <small>Live sync demonstration video placeholder</small>
-                    </div>
+                    <video width="100%" autoplay muted loop style="aspect-ratio: 16/9;">
+                        <source src="lib/Calendar Integration Short Video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
                 <div class="hero-text">
                     <h1>Outlook/SystmOne Calendar Integration</h1>
@@ -426,11 +433,10 @@
                 <p>Watch our comprehensive demonstration showing how to set up, configure, and use the Outlook/SystmOne calendar integration in your daily workflow.</p>
                 
                 <div class="demo-video">
-                    <div class="demo-video-placeholder">
-                        <div class="play-icon">▶️</div>
-                        <div>Complete Setup & Usage Guide</div>
-                        <small>Detailed demonstration video placeholder (15+ minutes)</small>
-                    </div>
+                    <video width="100%" autoplay muted loop style="aspect-ratio: 16/9;">
+                        <source src="lib/Calendar Integration Short Video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </section>
