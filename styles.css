@@ -448,7 +448,7 @@ nav a:hover {
 
 .reporting-icon-new .trend-line {
     fill: none;
-    stroke: #4DE0EB;
+    stroke: #000000;
     stroke-width: 2.4;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -1214,8 +1214,8 @@ footer p {
 }
 
 .submit-btn {
-    background: #4DE0EB;
-    color: #2E2E2E;
+    background: linear-gradient(rgba(0, 94, 184, 0.8), rgba(0, 61, 130, 0.8));
+    color: #F5F5F5;
     border: none;
     padding: 1rem 2rem;
     border-radius: 8px;
@@ -1227,7 +1227,7 @@ footer p {
 }
 
 .submit-btn:hover {
-    background: #3BC5CE;
+    background: linear-gradient(rgba(0, 94, 184, 0.8), rgba(0, 61, 130, 0.8));;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(77, 224, 235, 0.3);
 }
@@ -1258,7 +1258,7 @@ footer p {
 .contact-office-hours-large {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #4DE0EB;
+    color: #2E2E2E;
 }
 
 /* Responsive Design */
