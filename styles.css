@@ -747,7 +747,11 @@ nav a:hover {
     margin-bottom: 2rem;
     color: #2E2E2E;
 }
-
+.proven-track-record {
+    background: white;
+    padding-left: 5%;
+    padding-right: 5%;
+}
 .section-intro {
     font-size: 1.2rem;
     text-align: center;
