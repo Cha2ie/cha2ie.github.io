@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI & Automation - Compitel</title>
+    <link rel="icon" type="image/png" href="lib/Compitel Logo C (White Background).png">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Apple-style vertical scroll layout */
@@ -74,6 +75,16 @@
         .automation-btn:hover {
             background: #1A1A1A;
             box-shadow: 0 8px 25px rgba(46, 46, 46, 0.4);
+        }
+
+        .governance-btn {
+            background: #7C8A99;
+            box-shadow: 0 4px 15px rgba(124, 138, 153, 0.3);
+        }
+
+        .governance-btn:hover {
+            background: #5A6573;
+            box-shadow: 0 8px 25px rgba(124, 138, 153, 0.4);
         }
 
         .feature-section {
@@ -149,7 +160,6 @@
         .feature-media {
             position: relative;
             z-index: 1;
-            cursor: pointer;
         }
 
         .feature-media img,
@@ -404,6 +414,7 @@
                 <div class="quick-nav">
                     <a href="#clinical-ai" class="quick-nav-btn">Clinical AI Tools</a>
                     <a href="#workflow-automation" class="quick-nav-btn automation-btn">Workflow Automation</a>
+                    <a href="#ai-governance" class="quick-nav-btn governance-btn">AI Safety & Governance</a>
                 </div>
             </div>
         </section>
@@ -412,7 +423,7 @@
         <section id="clinical-ai" class="large-image-section" style="background-image: linear-gradient(rgba(0, 94, 184, 0.8), rgba(0, 61, 130, 0.8)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 600%22><rect width=%221000%22 height=%22600%22 fill=%22%23f0f0f0%22/></svg>');">
             <div class="large-image-overlay">
                 <h2>Clinical AI Tools</h2>
-                <p>Advanced AI-powered solutions designed specifically for hospice care, enhancing clinical documentation and decision-making.</p>
+                <p>Advanced AI-powered tools tailored for hospice and palliative care settings. These solutions enhance clinical documentation, support decision-making, and ensure patients receive timely, appropriate care.</p>
             </div>
         </section>
 
@@ -421,17 +432,17 @@
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Acuity Tool</h2>
-                    <p>Advanced patient prioritization system using IPOS (Integrated Palliative care Outcome Scale) and POI (Priority of Intervention) metrics. This intelligent tool ensures that patients are never forgotten and receive the right level of care at the right time.</p>
+                    <p>An intelligent patient prioritisation system built on IPOS (Integrated Palliative care Outcome Scale) and POI (Phase of Illness) and other metrics. </p>
                     <ul class="feature-list">
                         <li>IPOS-based patient assessment and scoring</li>
                         <li>POI-driven care prioritization algorithms</li>
                         <li>Automated patient risk stratification</li>
                         <li>Visual priority dashboards and alerts</li>
-                        <li>Ensures no patient falls through the cracks</li>
+                        <li>Ensures no patient is overlooked</li>
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <img src="lib/SharePoint Acuity List Full.png" alt="Acuity Tool - Patient Prioritization Dashboard" onclick="openImageModal(this)">
+                    <img src="lib/SharePoint Acuity List Full.png" alt="Acuity Tool - Patient Prioritization Dashboard">
                 </div>
             </div>
         </section>
@@ -441,13 +452,12 @@
             <div class="feature-content">
                 <div class="feature-text">
                     <h2 style="position: relative;">Smart Letter Writing <span style="position: absolute; top: -40px; left: -70px; background: #005EB8; color: white; font-size: 0.6em; padding: 0.3em 0.8em; border-radius: 12px; font-weight: 500; transform: rotate(-12deg); box-shadow: 0 2px 6px rgba(0, 94, 184, 0.3); z-index: 1;">Beta</span></h2>
-                    <p>AI-powered letter generation that creates professional, personalized correspondence for patients, families, and healthcare providers. Our intelligent system understands medical context and maintains the compassionate tone essential for hospice care.</p>
+                    <p>AI-powered letter generation that creates professional, personalized correspondence for patients, families, and healthcare providers. Designed to understand medical context and maintain the compassionate tone essential for hospice care.</p>
                     <ul class="feature-list">
-                        <li>Contextual AI that understands hospice care nuances</li>
+                        <li>Context-aware AI tuned to hospice care nuances</li>
                         <li>Professional templates for all communication types</li>
                         <li>Automatic patient data integration from SystmOne</li>
                         <li>Customizable tone and style preferences</li>
-                        <li>Multi-language support for diverse communities</li>
                     </ul>
                 </div>
                 <div class="feature-media">
@@ -474,11 +484,7 @@
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <div class="media-placeholder">
-                        <div class="icon">🧠</div>
-                        <div>Hospice AI Assistant Interface</div>
-                        <small>Interactive demo placeholder showing AI-powered clinical insights</small>
-                    </div>
+                    <img src="lib/Hospice fine-tuned LLM.png" alt="Hospice fine-tuned LLM Interface">
                 </div>
             </div>
         </section>
@@ -487,7 +493,7 @@
         <section id="workflow-automation" class="large-image-section" style="background-image: linear-gradient(rgba(46, 46, 46, 0.8), rgba(46, 46, 46, 0.6)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 600%22><rect width=%221000%22 height=%22600%22 fill=%22%232E2E2E%22/></svg>');">
             <div class="large-image-overlay">
                 <h2>Workflow Automation</h2>
-                <p>Streamline your daily operations with intelligent automation that reduces administrative burden and ensures nothing falls through the cracks.</p>
+                <p>Streamline your daily operations with intelligent automation that reduces administrative burden and ensures nothing is missed.</p>
             </div>
         </section>
 
@@ -496,17 +502,17 @@
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Clinical Auditing</h2>
-                    <p>Automated clinical quality assurance system that continuously monitors patient records to identify missing data, medication discrepancies, and documentation quality issues. Ensures comprehensive patient care and regulatory compliance.</p>
+                    <p>Automated clinical quality assurance system that continuously monitors patient records to identify missing data, medication discrepancies, and documentation issues. Supports regulatory compliance and comprehensive patient care.</p>
                     <ul class="feature-list">
-                        <li>Automated detection of missing patient data fields</li>
+                        <li>Detection of missing patient data fields</li>
                         <li>Medication reconciliation and safety checks</li>
                         <li>Clinical note quality assessment and scoring</li>
                         <li>Real-time alerts for incomplete documentation</li>
-                        <li>Comprehensive audit trails and reporting</li>
+                        <li>Full audit trails and reporting</li>
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <img src="lib/SharePoint Missing Data List Cropped.png" alt="Clinical Auditing - Missing Data Detection Dashboard" onclick="openImageModal(this)">
+                    <img src="lib/SharePoint Missing Data List Cropped.png" alt="Clinical Auditing - Missing Data Detection Dashboard">
                 </div>
             </div>
         </section>
@@ -516,10 +522,10 @@
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Outlook/SystmOne Calendar Integration</h2>
-                    <p>Seamlessly synchronize your SystmOne appointments with Outlook calendars, ensuring your team has a unified view of patient schedules. Automatic updates eliminate double-booking and scheduling conflicts.</p>
+                    <p>Synchronise SystmOne appointments with Outlook calendars for a unified view of patient schedules. Automatic updates prevent double-booking and scheduling conflicts.</p>
                     <ul class="feature-list">
-                        <li>Real-time bidirectional calendar synchronization</li>
-                        <li>Automatic conflict detection and resolution</li>
+                        <li>Real-time bidirectional calendar synchronisation</li>
+                        <li>Conflict detection and resolution</li>
                         <li>Patient visit reminders and notifications</li>
                         <li>Team scheduling coordination</li>
                         <li>Mobile calendar access for field staff</li>
@@ -542,17 +548,17 @@
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Automated SystmOne Task Reminders</h2>
-                    <p>Intelligent task management that automatically monitors SystmOne for overdue or approaching tasks, sending timely reminders to the right team members. Never miss critical patient care activities again.</p>
+                    <p>Intelligent task management that automatically monitors SystmOne for overdue or approaching tasks, sending timely reminders to the right team members. Ensures critical care activities are not missed.</p>
                     <ul class="feature-list">
                         <li>Smart task prioritization based on urgency and patient needs</li>
                         <li>Automated escalation for overdue critical tasks</li>
-                        <li>Customizable reminder schedules for different task types</li>
+                        <li>Customizable reminder schedules</li>
                         <li>Team workload balancing and task redistribution</li>
-                        <li>Comprehensive task completion tracking and reporting</li>
+                        <li>Task completion tracking and reporting</li>
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <img src="lib/Task Reminders.png" alt="Task Reminder System - Automated SystmOne Task Management Dashboard" onclick="openImageModal(this)">
+                    <img src="lib/Task Reminders.png" alt="Task Reminder System - Automated SystmOne Task Management Dashboard">
                 </div>
             </div>
         </section>
@@ -580,22 +586,53 @@
                     </div>
                     <div class="benefit-card">
                         <h3>Cost Reduction</h3>
-                        <p>Significant ROI through reduced administrative costs, improved efficiency, and better resource utilization.</p>
+                        <p>Significant return on investment through reduced administrative costs, improved efficiency, and better resource utilisation.</p>
                     </div>
                     <div class="benefit-card">
                         <h3>Scalable Solutions</h3>
-                        <p>AI and automation tools that grow with your organization, supporting increasing patient volumes and complexity.</p>
+                        <p>AI and automation tools that grow with your organisation, supporting increasing patient volumes and complexity.</p>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="image-modal">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
+        <!-- AI Safety & Information Governance Section -->
+        <section id="ai-governance" class="benefits-section" style="background: white;">
+            <div class="container">
+                <h2 style="font-size: 3rem; margin-bottom: 2rem; color: #2E2E2E;">AI Safety & Information Governance</h2>
+                <p style="max-width: 900px; margin: 0 auto 2rem auto; font-size: 1.1rem; line-height: 1.8; color: #2E2E2E; opacity: 0.9;">
+                    At Compitel, we prioritise AI safety, data protection, and information governance in every solution we deliver. Our AI tools are developed with strict adherence to NHS Digital standards, GDPR compliance, and clinical safety protocols. We ensure:
+                </p>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li style="padding: 1rem 0; font-size: 1.1rem; color: #2E2E2E; opacity: 0.9; position: relative; padding-left: 2.5rem; border-bottom: 1px solid rgba(46, 46, 46, 0.1);">
+                            <span style="position: absolute; left: 0; color: #005EB8; font-weight: bold; font-size: 1.2rem;">✓</span>
+                            Secure, contained handling of patient data with end-to-end encryption
+                        </li>
+                        <li style="padding: 1rem 0; font-size: 1.1rem; color: #2E2E2E; opacity: 0.9; position: relative; padding-left: 2.5rem; border-bottom: 1px solid rgba(46, 46, 46, 0.1);">
+                            <span style="position: absolute; left: 0; color: #005EB8; font-weight: bold; font-size: 1.2rem;">✓</span>
+                            Transparent AI decision-making aligned with ethical healthcare practices
+                        </li>
+                        <li style="padding: 1rem 0; font-size: 1.1rem; color: #2E2E2E; opacity: 0.9; position: relative; padding-left: 2.5rem; border-bottom: 1px solid rgba(46, 46, 46, 0.1);">
+                            <span style="position: absolute; left: 0; color: #005EB8; font-weight: bold; font-size: 1.2rem;">✓</span>
+                            Full audit trails for accountability and regulatory compliance
+                        </li>
+                        <li style="padding: 1rem 0; font-size: 1.1rem; color: #2E2E2E; opacity: 0.9; position: relative; padding-left: 2.5rem; border-bottom: 1px solid rgba(46, 46, 46, 0.1);">
+                            <span style="position: absolute; left: 0; color: #005EB8; font-weight: bold; font-size: 1.2rem;">✓</span>
+                            Role-based access controls to protect sensitive information
+                        </li>
+                        <li style="padding: 1rem 0; font-size: 1.1rem; color: #2E2E2E; opacity: 0.9; position: relative; padding-left: 2.5rem;">
+                            <span style="position: absolute; left: 0; color: #005EB8; font-weight: bold; font-size: 1.2rem;">✓</span>
+                            Ongoing monitoring and validation of AI outputs to prevent bias or error
+                        </li>
+                    </ul>
+                </div>
+                <p style="max-width: 900px; margin: 2rem auto 0 auto; font-size: 1.1rem; line-height: 1.8; color: #2E2E2E; opacity: 0.9;">
+                    Our commitment to responsible innovation means your organisation can adopt AI confidently — knowing safety, privacy, and governance are built in from the start.
+                </p>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
@@ -669,53 +706,7 @@
                 });
             });
 
-            // Image modal functionality
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            const closeModal = document.querySelector('.close-modal');
-            
-            // Add click handlers to all feature images
-            document.querySelectorAll('.feature-media img').forEach(img => {
-                img.addEventListener('click', function() {
-                    modal.classList.add('active');
-                    modalImg.src = this.src;
-                    modalImg.alt = this.alt;
-                    document.body.style.overflow = 'hidden';
-                });
-            });
         });
-
-        // Global function for opening image modal (used by onclick handlers)
-        function openImageModal(img) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.classList.add('active');
-            modalImg.src = img.src;
-            modalImg.alt = img.alt;
-            document.body.style.overflow = 'hidden';
-        }
-            
-            // Close modal handlers
-            closeModal.addEventListener('click', function() {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-            
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // Close modal with escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.classList.contains('active')) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        
     </script>
 </body>
 </html>

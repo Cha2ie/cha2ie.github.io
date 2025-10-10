@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporting Suite - Compitel</title>
+    <link rel="icon" type="image/png" href="lib/Compitel Logo C (White Background).png">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Apple-style vertical scroll layout */
@@ -149,7 +150,6 @@
         .feature-image {
             position: relative;
             z-index: 1;
-            cursor: pointer;
         }
 
         .feature-image img {
@@ -166,9 +166,6 @@
             box-shadow: 0 30px 80px rgba(0,0,0,0.25);
         }
 
-        .feature-image img:hover {
-            cursor: zoom-in;
-        }
 
         .large-image-section {
             min-height: 40vh;
@@ -472,7 +469,7 @@
                     </ul>
                 </div>
                 <div class="feature-image">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect width='600' height='400' fill='%23f8f9fa'/><rect x='50' y='50' width='500' height='300' fill='white' stroke='%23e9ecef'/><text x='300' y='200' text-anchor='middle' fill='%236c757d' font-size='24'>Audit Report Preview</text></svg>" alt="Automated Audit Reports" />
+                    <img src="lib/Clinical Auditing.png" alt="Clinical Auditing Dashboard" />
                 </div>
             </div>
         </section>
@@ -492,7 +489,7 @@
                     </ul>
                 </div>
                 <div class="feature-image">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect width='600' height='400' fill='%23f8f9fa'/><rect x='50' y='50' width='500' height='300' fill='white' stroke='%23e9ecef'/><text x='300' y='200' text-anchor='middle' fill='%236c757d' font-size='24'>PowerPoint Preview</text></svg>" alt="Generated PowerPoint Slides" />
+                    <img src="lib/Automated Dashboard.png" alt="Automated Dashboard PowerPoint Slides" />
                 </div>
             </div>
         </section>
@@ -512,7 +509,7 @@
                     </ul>
                 </div>
                 <div class="feature-image">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect width='600' height='400' fill='%23f8f9fa'/><rect x='50' y='50' width='500' height='300' fill='white' stroke='%23e9ecef'/><text x='300' y='200' text-anchor='middle' fill='%236c757d' font-size='24'>Early Warning Dashboard</text></svg>" alt="Early Warning Systems" />
+                    <img src="lib/Early Warning Systems.png" alt="Early Warning Systems Dashboard" />
                 </div>
             </div>
         </section>
@@ -550,12 +547,6 @@
             </div>
         </section>
     </main>
-
-    <!-- Image Modal -->
-    <div id="imageModal" class="image-modal">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
 
     <footer>
         <div class="container">
@@ -629,41 +620,6 @@
                 });
             });
 
-            // Image modal functionality
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            const closeModal = document.querySelector('.close-modal');
-            
-            // Add click handlers to all feature images
-            document.querySelectorAll('.feature-image img').forEach(img => {
-                img.addEventListener('click', function() {
-                    modal.classList.add('active');
-                    modalImg.src = this.src;
-                    modalImg.alt = this.alt;
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            
-            // Close modal handlers
-            closeModal.addEventListener('click', function() {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-            
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // Close modal with escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.classList.contains('active')) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
         });
     </script>
 </body>

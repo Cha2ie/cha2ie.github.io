@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Compitel</title>
+    <link rel="icon" type="image/png" href="lib/Compitel Logo C (White Background).png">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <header>
@@ -23,8 +26,8 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h2>Get in touch</h2>
-                <p class="hero-subtitle">Contact our healthcare IT specialists</p>
+                <h2>Contact</h2>
+                <p class="hero-subtitle">We would love to hear from you: Whether you’re exploring healthcare IT solutions, need support with SystmOne, or want to learn more about our AI and automation tools, our team is here to help.</p>
             </div>
         </section>
 
@@ -51,45 +54,9 @@
 
         <section class="about-section alt-bg">
             <div class="container">
-                <h2>Send us a message</h2>
-                <form class="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="organization">Organisation</label>
-                            <input type="text" id="organization" name="organization">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject *</label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Please select...</option>
-                            <option value="systmone">SystmOne Implementation</option>
-                            <option value="training">Training & Support</option>
-                            <option value="ai-automation">AI & Automation</option>
-                            <option value="reporting">Reporting Solutions</option>
-                            <option value="general">General Inquiry</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your requirements or how we can help..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                <h2>Our Location</h2>
+                <p style="margin-bottom: 20px; text-align: center;">14 Montpelier Crescent, Brighton, BN1 3JF</p>
+                <div id="map" style="height: 450px; width: 100%; border-radius: 8px;"></div>
             </div>
         </section>
     </main>
@@ -101,27 +68,25 @@
     </footer>
 
     <script>
-        // Contact dropdown functionality
+        // Initialize OpenStreetMap
         document.addEventListener('DOMContentLoaded', function() {
-            const contactBtn = document.getElementById('contactBtn');
-            const contactDropdown = document.getElementById('contactDropdown');
-            const contactClose = document.querySelector('.contact-close');
-            
-            contactBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                contactDropdown.classList.add('active');
-            });
-            
-            contactClose.addEventListener('click', function() {
-                contactDropdown.classList.remove('active');
-            });
-            
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!contactDropdown.contains(e.target) && !contactBtn.contains(e.target)) {
-                    contactDropdown.classList.remove('active');
-                }
-            });
+            // Coordinates for 14 Montpelier Crescent, Brighton BN1 3JF
+            const lat = 50.829061;
+            const lon = -0.148595;
+
+            // Initialize the map
+            const map = L.map('map').setView([lat, lon], 16);
+
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Add a marker for the location
+            L.marker([lat, lon]).addTo(map)
+                .bindPopup('<b>Compitel</b><br>14 Montpelier Crescent<br>Brighton, BN1 3JF')
+                .openPopup();
         });
     </script>
 </body>

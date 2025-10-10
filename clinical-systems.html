@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinical Systems - Compitel</title>
+    <link rel="icon" type="image/png" href="lib/Compitel Logo C (White Background).png">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Apple-style vertical scroll layout */
@@ -149,7 +150,6 @@
         .feature-media {
             position: relative;
             z-index: 1;
-            cursor: pointer;
         }
 
         .feature-media img,
@@ -160,6 +160,11 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-media img.reduced-size {
+            width: 85%;
+            max-width: 680px;
         }
 
         .feature-media:hover img,
@@ -378,6 +383,11 @@
             .media-placeholder {
                 max-width: 100%;
             }
+
+            .feature-media img.reduced-size {
+                width: 100%;
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -432,11 +442,7 @@
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <div class="media-placeholder">
-                        <div class="icon">💻</div>
-                        <div>SystmOne Implementation Process</div>
-                        <small>Project timeline and implementation methodology video</small>
-                    </div>
+                    <img src="lib/SystmOne Implementations.png" alt="SystmOne Implementation Process" />
                 </div>
             </div>
         </section>
@@ -456,11 +462,7 @@
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <div class="media-placeholder">
-                        <div class="icon">💊</div>
-                        <div>ePMA/EPS Implementation Journey</div>
-                        <small>Before and after workflow comparison and training materials</small>
-                    </div>
+                    <img src="lib/ePMA EPS Implementations.png" alt="ePMA/EPS Implementation Dashboard" class="reduced-size" />
                 </div>
             </div>
         </section>
@@ -480,11 +482,7 @@
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <div class="media-placeholder">
-                        <div class="icon">🔄</div>
-                        <div>Design Refresh Process</div>
-                        <small>Before and after system design comparison and optimization results</small>
-                    </div>
+                    <img src="lib/SystmOne Design Refresh.png" alt="SystmOne Design Refresh" />
                 </div>
             </div>
         </section>
@@ -512,11 +510,7 @@
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <div class="media-placeholder">
-                        <div class="icon">🔗</div>
-                        <div>System Integration Architecture</div>
-                        <small>Technical architecture diagrams and data flow visualization</small>
-                    </div>
+                    <img src="lib/Systems Interoperability.png" alt="Systems Interoperability Architecture" />
                 </div>
             </div>
         </section>
@@ -554,12 +548,6 @@
             </div>
         </section>
     </main>
-
-    <!-- Image Modal -->
-    <div id="imageModal" class="image-modal">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
 
     <footer>
         <div class="container">
@@ -633,41 +621,6 @@
                 });
             });
 
-            // Image modal functionality
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            const closeModal = document.querySelector('.close-modal');
-            
-            // Add click handlers to all feature images
-            document.querySelectorAll('.feature-media img').forEach(img => {
-                img.addEventListener('click', function() {
-                    modal.classList.add('active');
-                    modalImg.src = this.src;
-                    modalImg.alt = this.alt;
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            
-            // Close modal handlers
-            closeModal.addEventListener('click', function() {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-            
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // Close modal with escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.classList.contains('active')) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
         });
     </script>
 </body>
