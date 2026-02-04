@@ -304,6 +304,20 @@
         .close-modal:hover {
             background: rgba(0,0,0,0.8);
         }
+        .feature-media {
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-media img,
+        .feature-media video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
         @media (max-width: 768px) {
             .apple-hero h1 {
@@ -387,7 +401,7 @@
         </section>
 
         <!-- Patient Acuity Tool Section -->
-        <section class="feature-section">
+        <section id="patient-acuity-tool" class="feature-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Patient Acuity Tool</h2>
@@ -407,7 +421,7 @@
         </section>
 
         <!-- Missing Data Section -->
-        <section class="feature-section reverse-layout">
+        <section id="missing-data-detection" class="feature-section reverse-layout">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Missing Data Detection</h2>
@@ -427,7 +441,7 @@
         </section>
 
         <!-- No Future Appointments Section -->
-        <section class="feature-section">
+        <section id="no-future-appointments" class="feature-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>No Future Appointments</h2>
@@ -455,7 +469,7 @@
         </section>
 
         <!-- Automated Audit Reports Section -->
-        <section class="feature-section reverse-layout hospice-section">
+        <section id="clinical-auditing" class="feature-section reverse-layout hospice-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Clinical Auditing</h2>
@@ -475,7 +489,7 @@
         </section>
 
         <!-- Generated PowerPoint Slides Section -->
-        <section class="feature-section hospice-section">
+        <section id="automated-dashboard" class="feature-section hospice-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Automated Dashboard</h2>
@@ -488,14 +502,17 @@
                         <li>Scheduled generation for regular meetings</li>
                     </ul>
                 </div>
-                <div class="feature-image">
-                    <img src="lib/Automated Dashboard.png" alt="Automated Dashboard PowerPoint Slides" />
+                <div class="feature-media">
+                    <video width="100%" muted loop autoplay>
+                        <source src="lib/Dashboard - pop to line graph.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </section>
 
         <!-- Early Warning Systems Section -->
-        <section class="feature-section reverse-layout hospice-section">
+        <section id="early-warning-systems" class="feature-section reverse-layout hospice-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Early Warning Systems</h2>
@@ -515,7 +532,7 @@
         </section>
 
         <!-- Benefits Section -->
-        <section class="benefits-section">
+        <section id="key-benefits" class="benefits-section">
             <div class="container">
                 <h2 style="font-size: 3rem; margin-bottom: 2rem; color: #2E2E2E;">Key Benefits</h2>
                 <div class="benefits-grid">
@@ -550,7 +567,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Compitel. All rights reserved. | Specialist SystmOne solutions for UK healthcare.</p>
+            <p>&copy; 2026 Compitel. All rights reserved. | Specialist SystmOne solutions for UK healthcare.</p>
         </div>
     </footer>
 

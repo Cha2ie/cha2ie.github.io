@@ -114,6 +114,13 @@
             margin-bottom: 2rem;
         }
 
+        .video-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2E2E2E;
+
+        }   
+
         .feature-list {
             list-style: none;
             margin: 0;
@@ -167,8 +174,8 @@
             max-width: 680px;
         }
 
-        .feature-media:hover img,
-        .feature-media:hover video {
+        .feature-media img:hover,
+        .feature-media video:hover {
             transform: scale(1.05);
             box-shadow: 0 30px 80px rgba(0,0,0,0.25);
         }
@@ -428,7 +435,7 @@
         </section>
 
         <!-- SystmOne Implementations Section -->
-        <section class="feature-section">
+        <section id="systmone-implementations" class="feature-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>SystmOne Implementations</h2>
@@ -448,7 +455,7 @@
         </section>
 
         <!-- ePMA/EPS Implementations Section -->
-        <section class="feature-section reverse-layout">
+        <section id="epma-eps-implementations" class="feature-section reverse-layout">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>ePMA/EPS Implementations</h2>
@@ -462,13 +469,22 @@
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <img src="lib/ePMA EPS Implementations.png" alt="ePMA/EPS Implementation Dashboard" class="reduced-size" />
+                    <div class="video-header">Administration</div>
+                    <video width="100%" autoplay="true" muted loop controls style="aspect-ratio: 16/9; margin-bottom: 20px;">
+                        <source src="lib/ePMA Recording - Due Meds to Meds Admin.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-header">Prescribing</div>
+                    <video width="100%" muted loop controls style="aspect-ratio: 16/9;">
+                        <source src="lib/ePMA Recording - Prescribing Meds.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </section>
 
         <!-- SystmOne Design Refresh Section -->
-        <section class="feature-section">
+        <section id="systmone-design-refresh" class="feature-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>SystmOne Design Refresh</h2>
@@ -496,7 +512,7 @@
         </section>
 
         <!-- SystmOne/EMIS Web Integrations Section -->
-        <section class="feature-section integration-section">
+        <section id="systems-interoperability" class="feature-section integration-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Systems Interoperability</h2>
@@ -516,7 +532,7 @@
         </section>
 
         <!-- Benefits Section -->
-        <section class="benefits-section">
+        <section id="key-benefits" class="benefits-section">
             <div class="container">
                 <h2 style="font-size: 3rem; margin-bottom: 2rem; color: #2E2E2E;">Key Benefits</h2>
                 <div class="benefits-grid">
@@ -551,7 +567,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Compitel. All rights reserved. | Specialist SystmOne solutions for UK healthcare.</p>
+            <p>&copy; 2026 Compitel. All rights reserved. | Specialist SystmOne solutions for UK healthcare.</p>
         </div>
     </footer>
 
@@ -595,7 +611,7 @@
 
             // Initialize animations and image modal
             // Add initial styles for animation
-            const animatedElements = document.querySelectorAll('.feature-text, .feature-media, .benefit-card');
+            const animatedElements = document.querySelectorAll('.feature-text, .benefit-card');
             animatedElements.forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(50px)';

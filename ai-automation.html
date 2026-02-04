@@ -172,6 +172,10 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        .feature-media img {
+            cursor: pointer;
+        }
+
         .feature-media:hover img,
         .feature-media:hover video {
             transform: scale(1.05);
@@ -428,7 +432,7 @@
         </section>
 
         <!-- Acuity Tool Section -->
-        <section class="feature-section">
+        <section id="acuity-tool" class="feature-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Acuity Tool</h2>
@@ -448,7 +452,7 @@
         </section>
 
         <!-- Smart Letter Writing Section -->
-        <section class="feature-section reverse-layout">
+        <section id="smart-letter-writing" class="feature-section reverse-layout">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2 style="position: relative;">Smart Letter Writing <span style="position: absolute; top: -40px; left: -70px; background: #005EB8; color: white; font-size: 0.6em; padding: 0.3em 0.8em; border-radius: 12px; font-weight: 500; transform: rotate(-12deg); box-shadow: 0 2px 6px rgba(0, 94, 184, 0.3); z-index: 1;">Beta</span></h2>
@@ -461,15 +465,39 @@
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <video controls autoplay muted loop>
-                        <source src="lib/Letter Writing Tool Short Video.mp4" type="video/mp4">
+                    <video controls autoplay muted loop width="100%">
+                        <source src="lib/Letter Writing Beta Mounbatten.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
         </section>
 
-        <!-- Hospice fine-tuned LLM Section -->
+        <!-- Smart Speech to Text Section -->
+        <section id="smart-speech-to-text" class="feature-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2 style="position: relative;">Smart Speech to Text</h2>
+                    <p>AI-powered speech recognition and transcription that converts spoken words into text for documentation and communication within the hospice care environment.</p>
+                    <ul class="feature-list">
+                        <li>Speed up note taking by up to four times</li>
+                        <li>All speech data is processed within your Microsoft domain</li>
+                        <li>Empower clinicians with accessibility needs</li>
+                        <li>Works with all templates in SystmOne</li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <video controls autoplay muted loop style="border-radius: 1%;">
+                        <source src="lib/Speech to Text Demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Hospice fine-tuned LLM Section 
         <section class="feature-section reverse-layout">
             <div class="feature-content">
                 <div class="feature-text">
@@ -488,6 +516,7 @@
                 </div>
             </div>
         </section>
+        --->
 
         <!-- Large Image Section 2 - Workflow Automation -->
         <section id="workflow-automation" class="large-image-section" style="background-image: linear-gradient(rgba(46, 46, 46, 0.8), rgba(46, 46, 46, 0.6)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 600%22><rect width=%221000%22 height=%22600%22 fill=%22%232E2E2E%22/></svg>');">
@@ -497,8 +526,34 @@
             </div>
         </section>
 
+        <!-- Outlook/SystmOne Calendar Integration Section -->
+        <section id="calendar-integration" class="feature-section automation-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>Outlook/SystmOne Calendar Integration</h2>
+                    <p>Synchronise SystmOne appointments with Outlook calendars for a unified view of patient schedules. Automatic updates prevent double-booking and scheduling conflicts.</p>
+                    <ul class="feature-list">
+                        <li>Real-time bidirectional calendar synchronisation</li>
+                        <li>Conflict detection and resolution</li>
+                        <li>Patient visit reminders and notifications</li>
+                        <li>Team scheduling coordination</li>
+                        <li>Mobile calendar access for field staff</li>
+                    </ul>
+                    <div style="margin-top: 2rem;">
+                        <a href="calendar-integration.html" style="background: #2E2E2E; color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; display: inline-block;">Learn More & See Demo</a>
+                    </div>
+                </div>
+                <div class="feature-media">
+                    <video controls autoplay muted loop width="100%">
+                        <source src="lib/Calendar Integration Short Video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
         <!-- Clinical Auditing Section -->
-        <section class="feature-section automation-section">
+        <section id="clinical-auditing" class="feature-section reverse-layout automation-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Clinical Auditing</h2>
@@ -516,35 +571,10 @@
                 </div>
             </div>
         </section>
-
-        <!-- Outlook/SystmOne Calendar Integration Section -->
-        <section class="feature-section automation-section">
-            <div class="feature-content">
-                <div class="feature-text">
-                    <h2>Outlook/SystmOne Calendar Integration</h2>
-                    <p>Synchronise SystmOne appointments with Outlook calendars for a unified view of patient schedules. Automatic updates prevent double-booking and scheduling conflicts.</p>
-                    <ul class="feature-list">
-                        <li>Real-time bidirectional calendar synchronisation</li>
-                        <li>Conflict detection and resolution</li>
-                        <li>Patient visit reminders and notifications</li>
-                        <li>Team scheduling coordination</li>
-                        <li>Mobile calendar access for field staff</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <a href="calendar-integration.html" style="background: #2E2E2E; color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; display: inline-block;">Learn More & See Demo</a>
-                    </div>
-                </div>
-                <div class="feature-media">
-                    <video controls>
-                        <source src="lib/Calendar Integration Short Video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </section>
+        
 
         <!-- Automated SystmOne Task Reminders Section -->
-        <section class="feature-section reverse-layout automation-section">
+        <section id="task-reminders" class="feature-section automation-section">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>Automated SystmOne Task Reminders</h2>
@@ -564,7 +594,7 @@
         </section>
 
         <!-- Benefits Section -->
-        <section class="benefits-section">
+        <section id="key-benefits" class="benefits-section">
             <div class="container">
                 <h2 style="font-size: 3rem; margin-bottom: 2rem; color: #2E2E2E;">Key Benefits</h2>
                 <div class="benefits-grid">
@@ -636,9 +666,15 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Compitel. All rights reserved. | Specialist SystmOne solutions for UK healthcare.</p>
+            <p>&copy; 2026 Compitel. All rights reserved. | Specialist SystmOne solutions for UK healthcare.</p>
         </div>
     </footer>
+
+    <!-- Fullscreen image modal -->
+    <div class="image-modal" id="imageModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImg" src="" alt="Fullscreen image">
+    </div>
 
     <script>
         // Smooth scroll-triggered animations
@@ -686,6 +722,23 @@
                 el.style.transform = 'translateY(50px)';
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(el);
+            });
+
+            // Fullscreen image modal
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            const closeModal = document.getElementById('closeModal');
+
+            document.querySelectorAll('.feature-media img').forEach(img => {
+                img.addEventListener('click', function() {
+                    modalImg.src = this.src;
+                    modal.classList.add('active');
+                });
+            });
+
+            closeModal.addEventListener('click', () => modal.classList.remove('active'));
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
             });
 
             // Parallax effect for large image sections
