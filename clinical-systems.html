@@ -162,8 +162,8 @@
         .feature-media img,
         .feature-media video {
             width: 100%;
-            max-width: 800px;
             height: auto;
+            object-fit: contain;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -449,7 +449,7 @@
                     </ul>
                 </div>
                 <div class="feature-media">
-                    <img src="lib/SystmOne Implementations.png" alt="SystmOne Implementation Process" />
+                    <img src="lib/SystmOne Inplementation Image.png" alt="SystmOne Implementation Process" />
                 </div>
             </div>
         </section>
@@ -483,8 +483,31 @@
             </div>
         </section>
 
+        <!-- SystmOne Clinician App (Brigid) Section -->
+        <section id="brigid-app" class="feature-section">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>SystmOne Clinician App (Brigid)</h2>
+                    <p>Brigid is a mobile application designed to support clinicians in hospice care settings. It provides access to key clinical information, facilitates communication with patients, and can be used to perform and record care.</p>
+                    <ul class="feature-list">
+                        <li>Viewing and recording care plans when visiting patients</li>
+                        <li>Appointments and tasks accessible from your phone</li>
+                        <li>Access to patient documents and letters</li>
+                        <li>Send Airmid messages to patients</li>
+                        <li>Speech to text note taking</li>
+                    </ul>
+                </div>
+                <div class="feature-media" style="text-align: center;">
+                    <video autoplay muted loop controls style="width: 45%">
+                        <source src="lib/Brigid Demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
         <!-- SystmOne Design Refresh Section -->
-        <section id="systmone-design-refresh" class="feature-section">
+        <section id="systmone-design-refresh" class="feature-section reverse-layout">
             <div class="feature-content">
                 <div class="feature-text">
                     <h2>SystmOne Design Refresh</h2>
